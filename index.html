@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#111111">
+    <title>Barbearia Bruno Almeida | Agenda Online</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="marca">
+            <img
+                src="LOGO/LOGO DA BARBEARIA.jpeg"
+                alt="Logo da Barbearia Bruno Almeida"
+                class="logo"
+            >
+
+            <div class="marca-texto">
+                <p class="subtitulo">ESTILO • PRECISÃO • PERSONALIDADE</p>
+                <h1>Barbearia <span>Bruno Almeida</span></h1>
+                <p class="descricao-cabecalho">Sua imagem, nosso cuidado.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="agenda">
+            <div class="titulo-secao">
+                <span class="etiqueta">AGENDE SEU HORÁRIO</span>
+                <h2>Novo agendamento</h2>
+                <p>Preencha os dados e escolha o melhor horário para você.</p>
+            </div>
+
+            <div class="campo">
+                <label for="cliente">Nome do cliente</label>
+                <input
+                    type="text"
+                    id="cliente"
+                    placeholder="Digite seu nome completo"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="telefone">Telefone celular</label>
+                <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="(11) 99999-9999"
+                    maxlength="15"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="servico">Serviço desejado</label>
+                <select id="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Corte">Corte - R$ 40,00</option>
+                    <option value="Barba">Barba - R$ 25,00</option>
+                    <option value="Corte + Barba">Corte + Barba - R$ 55,00</option>
+                    <option value="Sobrancelha">Sobrancelha - R$ 15,00</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="data">Data do agendamento</label>
+                <input type="date" id="data" required>
+            </div>
+
+            <div class="campo">
+                <label for="horarios">Escolha o horário</label>
+                <div id="horarios" class="horarios"></div>
+                <p class="legenda-horarios">
+                    Os horários indisponíveis estarão bloqueados.
+                </p>
+            </div>
+
+            <button type="button" id="btnAgendar" class="btn-agendar">
+                Confirmar agendamento
+            </button>
+
+            <p id="mensagem" class="mensagem" role="status"
+               aria-live="polite" hidden></p>
+        </section>
+
+        <section class="lista">
+            <div class="titulo-secao">
+                <span class="etiqueta">CONTROLE DA AGENDA</span>
+                <h2>Agendamentos</h2>
+                <p>Consulte os horários registrados nesta agenda.</p>
+            </div>
+
+            <div id="listaAgendamentos"></div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Barbearia Bruno Almeida</p>
+        <span>Estilo em cada detalhe.</span>
+    </footer>
+
+</body>
+</html>
