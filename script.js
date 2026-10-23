@@ -822,4 +822,4 @@ gerarHorarios();
 carregarAgendamentos();
 mostrarAgendamentos();
 atualizarDestaqueData();
-atualizarHorarios();
+carregarHorariosOcupados();
