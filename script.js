@@ -299,8 +299,8 @@ data.addEventListener("change", function () {
 
     data.min = hoje;
 
-    atualizarDestaqueData();
-    atualizarHorarios();
+   atualizarDestaqueData();
+    carregarHorariosOcupados();
 });
 
 
