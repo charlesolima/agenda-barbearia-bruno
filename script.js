@@ -22,6 +22,38 @@ const mensagem = document.querySelector("#mensagem");
 const CHAVE_STORAGE = "agendamentos";
 
 let horariosOcupadosSupabase = [];
+async function carregarHorariosOcupados() {
+    if (!data.value) {
+        horariosOcupadosSupabase = [];
+        atualizarHorarios();
+        return;
+    }
+
+    const { data: horarios, error } = await supabaseClient.rpc(
+        "horarios_ocupados",
+        {
+            p_data: data.value
+        }
+    );
+
+    if (error) {
+        console.error("Erro ao consultar horários:", error);
+
+        mostrarMensagem(
+            "Não foi possível consultar os horários. Tente novamente.",
+            "erro"
+        );
+
+        return;
+    }
+
+    horariosOcupadosSupabase = horarios.map(item => ({
+        data: data.value,
+        horario: item.horario
+    }));
+
+    atualizarHorarios();
+}
 let horarioSelecionado = "";
 let agendamentos = [];
 
