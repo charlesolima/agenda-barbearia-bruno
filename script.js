@@ -1,3 +1,5 @@
+const SUPABASE_URL = "https://vqqljbnqnuitnivndckx.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_IlfuEiyBv_AeFB8M4qGZyQ_woYAKpim";
 
 /* ==========================
    1. Elementos da página
