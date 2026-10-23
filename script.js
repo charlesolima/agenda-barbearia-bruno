@@ -645,7 +645,7 @@ function validarAgendamento() {
    10. Criar agendamento
 ========================== */
 
-function criarAgendamento() {
+async function criarAgendamento() {
     limparMensagem();
 
     if (!validarAgendamento()) return;
