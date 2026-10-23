@@ -21,6 +21,7 @@ const mensagem = document.querySelector("#mensagem");
 
 const CHAVE_STORAGE = "agendamentos";
 
+let horariosOcupadosSupabase = [];
 let horarioSelecionado = "";
 let agendamentos = [];
 
