@@ -659,13 +659,33 @@ async function criarAgendamento() {
         status: "agendado"
     };
 
-    agendamentos.push(novoAgendamento);
-
-    if (!salvarAgendamentos()) {
-        agendamentos.pop();
-        atualizarHorarios();
-        return;
+    const { error } = await supabaseClient.rpc(
+    "criar_agendamento",
+    {
+        p_cliente: novoAgendamento.cliente,
+        p_telefone: novoAgendamento.telefone,
+        p_servico: novoAgendamento.servico,
+        p_data: novoAgendamento.data,
+        p_horario: novoAgendamento.horario
     }
+);
+
+if (error) {
+    console.error("Erro ao salvar no Supabase:", error);
+
+    mostrarMensagem(
+        error.message.includes("já está reservado")
+            ? "Este horário já está reservado. Escolha outro."
+            : "Não foi possível realizar o agendamento. Tente novamente.",
+        "erro"
+    );
+
+    await carregarAgendamentos();
+    atualizarHorarios();
+    return;
+}
+
+await carregarAgendamentos();
 
     mostrarAgendamentos();
 
