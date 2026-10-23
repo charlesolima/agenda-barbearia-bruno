@@ -1,6 +1,11 @@
 const SUPABASE_URL = "https://vqqljbnqnuitnivndckx.supabase.co/rest/v1/";
 const SUPABASE_KEY = "sb_publishable_IlfuEiyBv_AeFB8M4qGZyQ_woYAKpim";
 
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 /* ==========================
    1. Elementos da página
 ========================== */
