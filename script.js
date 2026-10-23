@@ -301,7 +301,7 @@ function salvarAgendamentos() {
     }
 }
 
-function carregarAgendamentos() {
+async function carregarAgendamentos() {
     try {
         const dadosSalvos = localStorage.getItem(
             CHAVE_STORAGE
