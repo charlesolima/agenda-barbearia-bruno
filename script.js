@@ -198,15 +198,12 @@ function atualizarHorarios() {
         function (botao) {
             const horario = botao.dataset.horario;
 
-            const ocupado = agendamentos.some(
-                function (item) {
-                    return (
-                        item.data === data.value &&
-                        item.horario === horario &&
-                        statusDoAgendamento(item) !== "cancelado"
-                    );
-                }
-            );
+           const ocupado = horariosOcupadosSupabase.some(
+    function (item) {
+        return item.data === data.value &&
+               item.horario === horario;
+    }
+);
 
             const passou =
                 data.value === hoje &&
