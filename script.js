@@ -823,3 +823,49 @@ carregarAgendamentos();
 mostrarAgendamentos();
 atualizarDestaqueData();
 carregarHorariosOcupados();
+
+// LOGIN DO ADMINISTRADOR
+
+const btnMostrarLogin = document.querySelector("#btnMostrarLogin");
+const areaLogin = document.querySelector("#areaLogin");
+const btnEntrarAdmin = document.querySelector("#btnEntrarAdmin");
+const btnFecharLogin = document.querySelector("#btnFecharLogin");
+const mensagemLogin = document.querySelector("#mensagemLogin");
+
+btnMostrarLogin.addEventListener("click", () => {
+    areaLogin.style.display = "block";
+});
+
+btnFecharLogin.addEventListener("click", () => {
+    areaLogin.style.display = "none";
+    mensagemLogin.textContent = "";
+});
+
+btnEntrarAdmin.addEventListener("click", async () => {
+    const email = document.querySelector("#emailAdmin").value.trim();
+    const senha = document.querySelector("#senhaAdmin").value;
+
+    mensagemLogin.textContent = "Verificando acesso...";
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password: senha
+    });
+
+    if (error) {
+        console.error("Erro no login:", error);
+        mensagemLogin.textContent = "E-mail ou senha incorretos.";
+        return;
+    }
+
+    const { data: administrador, error: erroAdmin } =
+        await supabaseClient.rpc("eh_administrador");
+
+    if (erroAdmin || administrador !== true) {
+        await supabaseClient.auth.signOut();
+        mensagemLogin.textContent = "Acesso não autorizado.";
+        return;
+    }
+
+    mensagemLogin.textContent = "Login realizado com sucesso!";
+});
