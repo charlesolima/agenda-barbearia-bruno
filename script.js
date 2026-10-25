@@ -876,13 +876,22 @@ document.querySelector("#painelAdmin").style.display = "block";
 
 // SAIR DO PAINEL ADMINISTRATIVO
 
+
 const btnSairAdmin = document.querySelector("#btnSairAdmin");
 
 btnSairAdmin.addEventListener("click", async () => {
-    await supabaseClient.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+        console.error("Erro ao sair:", error);
+        alert("Não foi possível encerrar a sessão. Tente novamente.");
+        return;
+    }
 
     document.querySelector("#painelAdmin").style.display = "none";
     document.querySelector("#acessoAdmin").style.display = "block";
+    document.querySelector("#areaLogin").style.display = "none";
 
     mensagemLogin.textContent = "";
 });
+
