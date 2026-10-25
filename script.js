@@ -871,4 +871,5 @@ btnEntrarAdmin.addEventListener("click", async () => {
 
 areaLogin.style.display = "none";
 btnMostrarLogin.style.display = "none";
+document.querySelector("#painelAdmin").style.display = "block";    
 });
