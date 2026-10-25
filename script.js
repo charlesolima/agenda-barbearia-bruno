@@ -870,7 +870,7 @@ btnEntrarAdmin.addEventListener("click", async () => {
     mensagemLogin.textContent = "Login realizado com sucesso!";
 
 areaLogin.style.display = "none";
-btnMostrarLogin.style.display = "none";
+btnMostrarLogin.style.display = "block";
 document.querySelector("#painelAdmin").style.display = "block";    
 });
 
