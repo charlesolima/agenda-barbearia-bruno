@@ -890,6 +890,7 @@ btnSairAdmin.addEventListener("click", async () => {
 
     document.querySelector("#painelAdmin").style.display = "none";
     document.querySelector("#acessoAdmin").style.display = "block";
+    btnMostrarLogin.style.display = "block";
     document.querySelector("#areaLogin").style.display = "none";
 
     mensagemLogin.textContent = "";
