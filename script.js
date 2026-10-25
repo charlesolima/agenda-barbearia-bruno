@@ -898,3 +898,28 @@ btnSairAdmin.addEventListener("click", async () => {
     mensagemLogin.textContent = "";
 });
 
+// BUSCAR AGENDAMENTOS NO SUPABASE — PAINEL ADMINISTRATIVO
+
+async function carregarAgendamentosAdmin() {
+    const listaAdmin = document.querySelector("#listaAdmin");
+
+    listaAdmin.textContent = "Carregando agendamentos...";
+
+    const { data, error } = await supabaseClient
+        .from("agendamentos")
+        .select("*")
+        .order("data", { ascending: true })
+        .order("horario", { ascending: true });
+
+    if (error) {
+        console.error("Erro ao buscar agendamentos:", error);
+        listaAdmin.textContent =
+            "Não foi possível carregar os agendamentos.";
+        return;
+    }
+
+    console.log("Agendamentos carregados:", data);
+
+    listaAdmin.textContent =
+        `Consulta realizada! ${data.length} agendamento(s) encontrado(s).`;
+}
