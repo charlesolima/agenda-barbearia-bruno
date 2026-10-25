@@ -892,6 +892,8 @@ btnSairAdmin.addEventListener("click", async () => {
     document.querySelector("#acessoAdmin").style.display = "block";
     btnMostrarLogin.style.display = "block";
     document.querySelector("#areaLogin").style.display = "none";
+    document.querySelector("#emailAdmin").value = "";
+    document.querySelector("#senhaAdmin").value = "";
 
     mensagemLogin.textContent = "";
 });
