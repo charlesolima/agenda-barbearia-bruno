@@ -873,3 +873,16 @@ areaLogin.style.display = "none";
 btnMostrarLogin.style.display = "none";
 document.querySelector("#painelAdmin").style.display = "block";    
 });
+
+// SAIR DO PAINEL ADMINISTRATIVO
+
+const btnSairAdmin = document.querySelector("#btnSairAdmin");
+
+btnSairAdmin.addEventListener("click", async () => {
+    await supabaseClient.auth.signOut();
+
+    document.querySelector("#painelAdmin").style.display = "none";
+    document.querySelector("#acessoAdmin").style.display = "block";
+
+    mensagemLogin.textContent = "";
+});
