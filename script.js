@@ -899,7 +899,8 @@ btnSairAdmin.addEventListener("click", async () => {
     mensagemLogin.textContent = "";
 });
 
-// BUSCAR AGENDAMENTOS NO SUPABASE — PAINEL ADMINISTRATIVO
+
+// BUSCAR E EXIBIR AGENDAMENTOS NO PAINEL ADMINISTRATIVO
 
 async function carregarAgendamentosAdmin() {
     const listaAdmin = document.querySelector("#listaAdmin");
@@ -908,19 +909,60 @@ async function carregarAgendamentosAdmin() {
 
     const { data, error } = await supabaseClient
         .from("agendamentos")
-        .select("*")
+        .select("id, cliente, telefone, servico, data, horario, status")
         .order("data", { ascending: true })
         .order("horario", { ascending: true });
 
     if (error) {
         console.error("Erro ao buscar agendamentos:", error);
+
         listaAdmin.textContent =
             "Não foi possível carregar os agendamentos.";
+
         return;
     }
 
-    console.log("Agendamentos carregados:", data);
+    if (!data || data.length === 0) {
+        listaAdmin.textContent = "Nenhum agendamento encontrado.";
+        return;
+    }
 
-    listaAdmin.textContent =
-        `Consulta realizada! ${data.length} agendamento(s) encontrado(s).`;
+    listaAdmin.replaceChildren();
+
+    data.forEach((agendamento) => {
+        const card = document.createElement("div");
+        card.classList.add("agendamento-admin");
+
+        const cliente = document.createElement("p");
+        cliente.textContent = `Cliente: ${agendamento.cliente}`;
+
+        const telefone = document.createElement("p");
+        telefone.textContent = `Telefone: ${agendamento.telefone}`;
+
+        const servico = document.createElement("p");
+        servico.textContent = `Serviço: ${agendamento.servico}`;
+
+        const dataAgendamento = document.createElement("p");
+        const partesData = agendamento.data.split("-");
+
+        dataAgendamento.textContent =
+            `Data: ${partesData[2]}/${partesData[1]}/${partesData[0]}`;
+
+        const horario = document.createElement("p");
+        horario.textContent = `Horário: ${agendamento.horario}`;
+
+        const status = document.createElement("p");
+        status.textContent = `Status: ${agendamento.status}`;
+
+        card.append(
+            cliente,
+            telefone,
+            servico,
+            dataAgendamento,
+            horario,
+            status
+        );
+
+        listaAdmin.appendChild(card);
+    });
 }
