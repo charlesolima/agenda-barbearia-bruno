@@ -967,6 +967,8 @@ async function carregarAgendamentosAdmin() {
 
         // Cria o botão somente para agendamentos ativos
         if (agendamento.status === "agendado") {
+            console.log("Criando botão para:", agendamento.cliente, agendamento.status);
+            
             const botaoCancelar = document.createElement("button");
 
             botaoCancelar.type = "button";
