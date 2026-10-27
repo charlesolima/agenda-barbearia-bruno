@@ -954,6 +954,8 @@ async function carregarAgendamentosAdmin() {
         const status = document.createElement("p");
         status.textContent = `Status: ${agendamento.status}`;
 
+ 
+        // Adiciona os dados do agendamento ao cartão
         card.append(
             cliente,
             telefone,
@@ -963,6 +965,51 @@ async function carregarAgendamentosAdmin() {
             status
         );
 
+        // Cria o botão somente para agendamentos ativos
+        if (agendamento.status === "agendado") {
+            const botaoCancelar = document.createElement("button");
+
+            botaoCancelar.type = "button";
+            botaoCancelar.textContent = "Cancelar agendamento";
+            botaoCancelar.classList.add("btn-cancelar-admin");
+
+            botaoCancelar.addEventListener("click", async () => {
+                const confirmar = confirm(
+                    `Deseja cancelar o agendamento de ${agendamento.cliente} em ${partesData[2]}/${partesData[1]}/${partesData[0]} às ${agendamento.horario}?`
+                );
+
+                if (!confirmar) {
+                    return;
+                }
+
+                botaoCancelar.disabled = true;
+                botaoCancelar.textContent = "Cancelando...";
+
+                const { error } = await supabaseClient
+                    .from("agendamentos")
+                    .update({ status: "cancelado" })
+                    .eq("id", agendamento.id);
+
+                if (error) {
+                    console.error("Erro ao cancelar agendamento:", error);
+
+                    alert(
+                        "Não foi possível cancelar o agendamento. Verifique as permissões e tente novamente."
+                    );
+
+                    botaoCancelar.disabled = false;
+                    botaoCancelar.textContent = "Cancelar agendamento";
+
+                    return;
+                }
+
+                alert("Agendamento cancelado com sucesso!");
+
+                await carregarAgendamentosAdmin();
+            });
+
+            card.appendChild(botaoCancelar);
+        }
+
         listaAdmin.appendChild(card);
-    });
-}
+
