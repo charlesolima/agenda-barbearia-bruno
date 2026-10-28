@@ -1014,4 +1014,6 @@ async function carregarAgendamentosAdmin() {
         }
 
         listaAdmin.appendChild(card);
+            });
+}
 
