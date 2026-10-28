@@ -1056,6 +1056,7 @@ async function carregarAgendamentosAdmin() {
             });
 
             card.appendChild(botaoConcluir);
+            console.log("Botão de concluir criado para:", agendamento.cliente);
         }
 
 
