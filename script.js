@@ -965,10 +965,11 @@ async function carregarAgendamentosAdmin() {
             status
         );
 
-        // Cria o botão somente para agendamentos ativos
+      
+        // Cria os botões somente para agendamentos ativos
         if (agendamento.status === "agendado") {
-            console.log("Criando botão para:", agendamento.cliente, agendamento.status);
-            
+
+            // Botão para cancelar
             const botaoCancelar = document.createElement("button");
 
             botaoCancelar.type = "button";
@@ -1011,9 +1012,50 @@ async function carregarAgendamentosAdmin() {
             });
 
             card.appendChild(botaoCancelar);
+
+            // Botão para marcar como concluído
+            const botaoConcluir = document.createElement("button");
+
+            botaoConcluir.type = "button";
+            botaoConcluir.textContent = "Marcar como concluído";
+            botaoConcluir.classList.add("btn-concluir-admin");
+
+            botaoConcluir.addEventListener("click", async () => {
+                const confirmar = confirm(
+                    `Deseja marcar o agendamento de ${agendamento.cliente} do dia ${partesData[2]}/${partesData[1]}/${partesData[0]} às ${agendamento.horario} como concluído?`
+                );
+
+                if (!confirmar) {
+                    return;
+                }
+
+                botaoConcluir.disabled = true;
+                botaoConcluir.textContent = "Concluindo...";
+
+                const { error } = await supabaseClient
+                    .from("agendamentos")
+                    .update({ status: "concluido" })
+                    .eq("id", agendamento.id);
+
+                if (error) {
+                    console.error("Erro ao concluir agendamento:", error);
+
+                    alert(
+                        "Não foi possível concluir o agendamento. Verifique as permissões e tente novamente."
+                    );
+
+                    botaoConcluir.disabled = false;
+                    botaoConcluir.textContent = "Marcar como concluído";
+
+                    return;
+                }
+
+                alert("Agendamento marcado como concluído!");
+
+                await carregarAgendamentosAdmin();
+            });
+
+            card.appendChild(botaoConcluir);
         }
 
-        listaAdmin.appendChild(card);
-            });
-}
 
