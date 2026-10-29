@@ -768,3 +768,59 @@ select:focus-visible {
 }
 
 
+/* ===== BOTÕES DO PAINEL ADMINISTRATIVO ===== */
+
+#listaAdmin .agendamento-admin button {
+    display: inline-block;
+    padding: 11px 16px;
+    margin: 8px 8px 0 0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Cancelar agendamento: dourado */
+#listaAdmin .agendamento-admin .btn-cancelar-admin {
+    background-color: #c9a227;
+    color: #111111;
+    border: 1px solid #c9a227;
+}
+
+#listaAdmin .agendamento-admin .btn-cancelar-admin:hover {
+    background-color: #e0b735;
+    transform: translateY(-1px);
+}
+
+/* Marcar como concluído: preto com borda dourada */
+#listaAdmin .agendamento-admin .btn-concluir-admin {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #c9a227;
+}
+
+#listaAdmin .agendamento-admin .btn-concluir-admin:hover {
+    background-color: #454545;
+    transform: translateY(-1px);
+}
+
+/* Botões desativados durante uma operação */
+#listaAdmin .agendamento-admin button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 480px) {
+    #listaAdmin .agendamento-admin button {
+        display: block;
+        width: 100%;
+        margin: 8px 0 0;
+        box-sizing: border-box;
+    }
+}
+
+
