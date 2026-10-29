@@ -701,9 +701,7 @@ if (error) {
     return;
 }
 
-await carregarAgendamentos();
-
-    mostrarAgendamentos();
+await carregarHorariosOcupados();
 
     cliente.value = "";
     telefone.value = "";
@@ -805,8 +803,6 @@ btnAgendar.addEventListener(
 );
 
 gerarHorarios();
-carregarAgendamentos();
-mostrarAgendamentos();
 atualizarDestaqueData();
 carregarHorariosOcupados();
 
