@@ -14,23 +14,6 @@
 </head>
     
 <body>
-     <section id="painelAdmin" style="display: none;">
-        <h2>Painel do Administrador</h2>
-    
-        <p>Bem-vindo à administração da Barbearia Bruno Almeida!</p>
-    
-        <div id="listaAdmin">
-            <p>Os agendamentos aparecerão aqui.</p>
-        </div>
-    
-        <button type="button" id="btnSairAdmin">Sair do administrador</button>
-    </section>
-    
-    <div id="acessoAdmin">
-    <button type="button" id="btnMostrarLogin">
-        Acesso do administrador
-    </button>
-    </div>
 
     <header class="cabecalho">
         <div class="marca">
@@ -119,36 +102,38 @@
             <div id="listaAgendamentos" style="display: none;"></div>
             
         </section>
+    
     </main>
 
     <footer class="rodape">
         <p>Barbearia Bruno Almeida</p>
         <span>Estilo em cada detalhe.</span>
     </footer>
-<section id="areaLogin" style="display: none;">
-    <h2>Login do Administrador</h2>
 
-    <label for="emailAdmin">E-mail:</label>
-    <input
-        type="email"
-        id="emailAdmin"
-        placeholder="Digite seu e-mail"
-        autocomplete="username"
-    >
+    <!-- O PAINEL DO ADMINISTRADOR FICA AQUI -->
+    <section id="painelAdmin" style="display: none;">
+        <h2>Painel do Administrador</h2>
 
-    <label for="senhaAdmin">Senha:</label>
-    <input
-        type="password"
-        id="senhaAdmin"
-        placeholder="Digite sua senha"
-        autocomplete="off"
-    >
+        <p>Bem-vindo à administração da Barbearia Bruno Almeida!</p>
 
-    <button type="button" id="btnEntrarAdmin">Entrar</button>
-    <button type="button" id="btnFecharLogin">Fechar</button>
+        <div id="listaAdmin">
+            <p>Os agendamentos aparecerão aqui.</p>
+        </div>
 
-    <p id="mensagemLogin"></p>
-</section>
-    
+        <button type="button" id="btnSairAdmin">
+            Sair do administrador
+        </button>
+    </section>
+
+    <div id="acessoAdmin">
+        <button type="button" id="btnMostrarLogin">
+            Acesso do administrador
+        </button>
+    </div>
+
+    <section id="areaLogin" style="display: none;">
+        <!-- Mantenha aqui todo o conteúdo atual do login -->
+    </section>
+
 </body>
 </html>
