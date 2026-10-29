@@ -333,53 +333,39 @@ function salvarAgendamentos() {
 
 async function carregarAgendamentos() {
     try {
-        const dadosSalvos = localStorage.getItem(
-            CHAVE_STORAGE
-        );
+        const { data, error } = await supabaseClient
+            .from("agendamentos")
+            .select("*")
+            .order("data", { ascending: true })
+            .order("horario", { ascending: true });
 
-        const dados = dadosSalvos
-            ? JSON.parse(dadosSalvos)
-            : [];
-
-        if (!Array.isArray(dados)) {
-            throw new Error("Formato de dados inválido.");
+        if (error) {
+            throw error;
         }
 
-        agendamentos = dados
-            .filter(item =>
-                item &&
-                typeof item.cliente === "string" &&
-                typeof item.telefone === "string" &&
-                typeof item.servico === "string" &&
-                typeof item.data === "string" &&
-                typeof item.horario === "string"
-            )
-            .map(item => ({
-                ...item,
-                status: [
-                    "agendado",
-                    "concluido",
-                    "cancelado"
-                ].includes(item.status)
-                    ? item.status
-                    : "agendado"
-            }));
+        agendamentos = (data || []).map(item => ({
+            ...item,
+            status: [
+                "agendado",
+                "concluido",
+                "cancelado"
+            ].includes(item.status)
+                ? item.status
+                : "agendado"
+        }));
 
     } catch (erro) {
         console.error(
-            "Erro ao carregar agendamentos:",
+            "Erro ao carregar agendamentos do Supabase:",
             erro
         );
 
-        agendamentos = [];
-
         mostrarMensagem(
-            "Não foi possível ler os agendamentos salvos.",
+            "Não foi possível carregar os agendamentos.",
             "erro"
         );
     }
 }
-
 
 /* ==========================
    8. Exibir os três grupos
