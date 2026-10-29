@@ -897,11 +897,20 @@ async function carregarAgendamentosAdmin() {
 
     listaAdmin.textContent = "Carregando agendamentos...";
 
-    const { data, error } = await supabaseClient
-        .from("agendamentos")
-        .select("id, cliente, telefone, servico, data, horario, status")
-        .order("data", { ascending: true })
-        .order("horario", { ascending: true });
+   
+const agora = new Date();
+
+const hoje =
+    `${agora.getFullYear()}-${String(agora.getMonth() + 1).padStart(2, "0")}-${String(agora.getDate()).padStart(2, "0")}`;
+
+const { data, error } = await supabaseClient
+    .from("agendamentos")
+    .select("id, cliente, telefone, servico, data, horario, status")
+    .eq("status", "agendado")
+    .gte("data", hoje)
+    .order("data", { ascending: true })
+    .order("horario", { ascending: true });
+
 
     if (error) {
         console.error("Erro ao buscar agendamentos:", error);
