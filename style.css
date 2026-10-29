@@ -864,3 +864,44 @@ select:focus-visible {
     }
 }
 
+/* BOTÕES DO PAINEL ADMINISTRATIVO */
+
+#listaAdmin .btn-cancelar-admin {
+    background-color: #c9a227 !important;
+    color: #111111 !important;
+    border: 1px solid #c9a227 !important;
+    border-radius: 6px !important;
+    padding: 11px 16px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    cursor: pointer;
+}
+
+#listaAdmin .btn-concluir-admin {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border: 1px solid #c9a227 !important;
+    border-radius: 6px !important;
+    padding: 11px 16px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    cursor: pointer;
+}
+
+#listaAdmin .btn-cancelar-admin:hover {
+    background-color: #e0b735 !important;
+}
+
+#listaAdmin .btn-concluir-admin:hover {
+    background-color: #454545 !important;
+}
+
+@media (max-width: 480px) {
+    #listaAdmin .btn-cancelar-admin,
+    #listaAdmin .btn-concluir-admin {
+        width: 100%;
+        margin-top: 8px;
+        box-sizing: border-box;
+    }
+}
+
