@@ -131,9 +131,32 @@
         </button>
     </div>
 
-    <section id="areaLogin" style="display: none;">
-        <!-- Mantenha aqui todo o conteúdo atual do login -->
-    </section>
+   
+<section id="areaLogin" style="display: none;">
+    <h2>Login do Administrador</h2>
+
+    <label for="emailAdmin">E-mail:</label>
+    <input
+        type="email"
+        id="emailAdmin"
+        placeholder="Digite seu e-mail"
+        autocomplete="username"
+    >
+
+    <label for="senhaAdmin">Senha:</label>
+    <input
+        type="password"
+        id="senhaAdmin"
+        placeholder="Digite sua senha"
+        autocomplete="off"
+    >
+
+    <button type="button" id="btnEntrarAdmin">Entrar</button>
+    <button type="button" id="btnFecharLogin">Fechar</button>
+
+    <p id="mensagemLogin"></p>
+</section>
+
 
 </body>
 </html>
