@@ -824,3 +824,43 @@ select:focus-visible {
 }
 
 
+/* FORÇAR ESTILO DOS BOTÕES DO PAINEL ADMINISTRATIVO */
+
+#painelAdmin #listaAdmin .agendamento-admin button.btn-cancelar-admin {
+    background: #c9a227 !important;
+    color: #111111 !important;
+    border: 1px solid #c9a227 !important;
+    border-radius: 6px !important;
+    padding: 11px 16px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+#painelAdmin #listaAdmin .agendamento-admin button.btn-concluir-admin {
+    background: #333333 !important;
+    color: #ffffff !important;
+    border: 1px solid #c9a227 !important;
+    border-radius: 6px !important;
+    padding: 11px 16px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+#painelAdmin #listaAdmin .agendamento-admin button.btn-cancelar-admin:hover {
+    background: #e0b735 !important;
+}
+
+#painelAdmin #listaAdmin .agendamento-admin button.btn-concluir-admin:hover {
+    background: #454545 !important;
+}
+
+@media (max-width: 480px) {
+    #painelAdmin #listaAdmin .agendamento-admin button {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 8px 0 0 !important;
+    }
+}
+
