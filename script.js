@@ -1058,6 +1058,12 @@ const { data, error } = await supabaseClient
         }
 
         listaAdmin.appendChild(card);
+        console.log(
+    "Agendamento exibido no painel:",
+    agendamento.cliente,
+    agendamento.data,
+    agendamento.status
+        
     });
 }
 
