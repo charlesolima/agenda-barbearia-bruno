@@ -333,11 +333,19 @@ function salvarAgendamentos() {
 
 async function carregarAgendamentos() {
     try {
-        const { data, error } = await supabaseClient
-            .from("agendamentos")
-            .select("*")
-            .order("data", { ascending: true })
-            .order("horario", { ascending: true });
+        
+const agora = new Date();
+
+const hoje =
+    `${agora.getFullYear()}-${String(agora.getMonth() + 1).padStart(2, "0")}-${String(agora.getDate()).padStart(2, "0")}`;
+
+const { data, error } = await supabaseClient
+    .from("agendamentos")
+    .select("id, cliente, telefone, servico, data, horario, status")
+    .eq("status", "agendado")
+    .gte("data", hoje)
+    .order("data", { ascending: true })
+    .order("horario", { ascending: true });
 
         if (error) {
             throw error;
@@ -904,10 +912,10 @@ async function carregarAgendamentosAdmin() {
         return;
     }
 
-    if (!data || data.length === 0) {
-        listaAdmin.textContent = "Nenhum agendamento encontrado.";
-        return;
-    }
+   if (!data || data.length === 0) {
+    listaAdmin.textContent = "Nenhum agendamento ativo encontrado.";
+    return;
+}
 
     listaAdmin.replaceChildren();
 
