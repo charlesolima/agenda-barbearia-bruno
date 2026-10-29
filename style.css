@@ -654,4 +654,34 @@ select:focus-visible {
     border-radius: 8px;
 }
 
+/* Lista de agendamentos do painel administrativo */
+#listaAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Caixa individual de cada agendamento */
+#listaAdmin .agendamento-admin {
+    background-color: #1f1f1f;
+    border: 1px solid #c9a227;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Espaçamento entre as informações */
+#listaAdmin .agendamento-admin p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+/* Espaçamento dos botões */
+#listaAdmin .agendamento-admin button {
+    margin: 6px 8px 0 0;
+}
+
+
 
