@@ -639,3 +639,19 @@ select:focus-visible {
 .agendamento-cancelados {
     border-left: 3px solid #a64b4b;
 }
+
+/* Espaçamento entre os agendamentos do painel administrativo */
+#listaAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Espaçamento interno de cada agendamento */
+.agendamento-admin {
+    padding: 15px;
+    margin: 0;
+    border-radius: 8px;
+}
+
+
