@@ -578,8 +578,10 @@ acoes.append(
 
 card.appendChild(acoes);
 card.appendChild(botaoWhatsApp);
-            secao.appendChild(card);
-        });
+
+} // Fecha o if (status === "agendado")
+
+secao.appendChild(card);
 
         return secao;
     }
