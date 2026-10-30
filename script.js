@@ -21,6 +21,10 @@ const horarios = document.querySelector("#horarios");
 const btnAgendar = document.querySelector("#btnAgendar");
 const listaAgendamentos = document.querySelector("#listaAgendamentos");
 const mensagem = document.querySelector("#mensagem");
+const telefoneConsulta = document.querySelector("#telefoneConsulta");
+const btnConsultarAgendamentos = document.querySelector("#btnConsultarAgendamentos");
+const mensagemConsulta = document.querySelector("#mensagemConsulta");
+const resultadoAgendamentos = document.querySelector("#resultadoAgendamentos");
 
 const CHAVE_STORAGE = "agendamentos";
 
