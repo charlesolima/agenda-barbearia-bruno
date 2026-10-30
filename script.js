@@ -1061,7 +1061,7 @@ const { data, error } = await supabaseClient
             );
         }
 
-        listaAdmin.appendChild(card);
+              listaAdmin.appendChild(card);
 
         console.log(
             "Agendamento exibido no painel:",
@@ -1070,7 +1070,6 @@ const { data, error } = await supabaseClient
             agendamento.status
         );
 
-    }); // Fecha o data.forEach
+    }); // Fecha data.forEach()
 
-} // Fecha carregarAgendamentosAdmin
-
+} // Fecha carregarAgendamentosAdmin()
