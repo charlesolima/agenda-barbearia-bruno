@@ -1057,14 +1057,14 @@ const { data, error } = await supabaseClient
             console.log("Botão de concluir criado para:", agendamento.cliente);
         }
 
-        listaAdmin.appendChild(card);
-        console.log(
+     listaAdmin.appendChild(card);
+
+console.log(
     "Agendamento exibido no painel:",
     agendamento.cliente,
     agendamento.data,
     agendamento.status
-        
-    });
+);
 }
 
 
