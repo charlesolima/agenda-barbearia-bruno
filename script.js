@@ -583,6 +583,8 @@ card.appendChild(botaoWhatsApp);
 
 secao.appendChild(card);
 
+        }); // Fecha o itens.forEach()
+
         return secao;
     }
 
