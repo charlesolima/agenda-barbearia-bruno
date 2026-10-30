@@ -382,6 +382,7 @@ const { data, error } = await supabaseClient
    8. Exibir os três grupos
 ========================== */
 
+
 function mostrarAgendamentos() {
     listaAgendamentos.replaceChildren();
 
@@ -427,12 +428,7 @@ function mostrarAgendamentos() {
             )
         );
 
-    function criarSecao(
-        titulo,
-        itens,
-        tipo,
-        textoVazio
-    ) {
+    function criarSecao(titulo, itens, tipo, textoVazio) {
         const secao = document.createElement("section");
         secao.className = `grupo-agendamentos ${tipo}`;
 
@@ -451,12 +447,10 @@ function mostrarAgendamentos() {
 
         if (itens.length === 0) {
             const vazio = document.createElement("p");
-
             vazio.className = "lista-vazia";
             vazio.textContent = textoVazio;
 
             secao.appendChild(vazio);
-
             return secao;
         }
 
@@ -469,9 +463,7 @@ function mostrarAgendamentos() {
             dataReserva.className = "data-agendamento";
 
             const textoData = document.createElement("span");
-            textoData.textContent = formatarData(
-                agendamento.data
-            );
+            textoData.textContent = formatarData(agendamento.data);
 
             dataReserva.appendChild(textoData);
 
@@ -549,41 +541,41 @@ function mostrarAgendamentos() {
                     );
                 });
 
-               // Botão para solicitar cancelamento pelo WhatsApp
-const botaoWhatsApp = document.createElement("button");
+                // Botão de solicitação de cancelamento pelo WhatsApp
+                const botaoWhatsApp =
+                    document.createElement("button");
 
-botaoWhatsApp.type = "button";
-botaoWhatsApp.className = "btn-whatsapp";
-botaoWhatsApp.textContent = "Solicitar cancelamento pelo WhatsApp";
+                botaoWhatsApp.type = "button";
+                botaoWhatsApp.className = "btn-whatsapp";
+                botaoWhatsApp.textContent =
+                    "Solicitar cancelamento pelo WhatsApp";
 
-botaoWhatsApp.addEventListener("click", () => {
-    const mensagemWhatsApp =
-        `Olá! Gostaria de solicitar o cancelamento do meu agendamento na Barbearia Bruno Almeida.\n\n` +
-        `Nome: ${agendamento.cliente}\n` +
-        `Data: ${formatarData(agendamento.data)}\n` +
-        `Horário: ${agendamento.horario}\n` +
-        `Serviço: ${agendamento.servico}\n\n` +
-        `Aguardo a confirmação. Obrigado!`;
+                botaoWhatsApp.addEventListener("click", () => {
+                    const mensagemWhatsApp =
+                        `Olá! Gostaria de solicitar o cancelamento do meu agendamento na Barbearia Bruno Almeida.\n\n` +
+                        `Nome: ${agendamento.cliente}\n` +
+                        `Data: ${formatarData(agendamento.data)}\n` +
+                        `Horário: ${agendamento.horario}\n` +
+                        `Serviço: ${agendamento.servico}\n\n` +
+                        `Aguardo a confirmação. Obrigado!`;
 
-    const linkWhatsApp =
-        `https://wa.me/${WHATSAPP_BARBEARIA}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+                    const linkWhatsApp =
+                        `https://wa.me/${WHATSAPP_BARBEARIA}?text=${encodeURIComponent(mensagemWhatsApp)}`;
 
-    window.open(linkWhatsApp, "_blank");
-});
+                    window.open(linkWhatsApp, "_blank");
+                });
 
-acoes.append(
-    botaoConcluir,
-    botaoCancelar
-);
+                acoes.append(
+                    botaoConcluir,
+                    botaoCancelar
+                );
 
-card.appendChild(acoes);
-card.appendChild(botaoWhatsApp);
+                card.appendChild(acoes);
+                card.appendChild(botaoWhatsApp);
+            }
 
-} // Fecha o if (status === "agendado")
-
-secao.appendChild(card);
-
-        }); // Fecha o itens.forEach()
+            secao.appendChild(card);
+        });
 
         return secao;
     }
