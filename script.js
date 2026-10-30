@@ -549,14 +549,35 @@ function mostrarAgendamentos() {
                     );
                 });
 
-                acoes.append(
-                    botaoConcluir,
-                    botaoCancelar
-                );
+               // Botão para solicitar cancelamento pelo WhatsApp
+const botaoWhatsApp = document.createElement("button");
 
-                card.appendChild(acoes);
-            }
+botaoWhatsApp.type = "button";
+botaoWhatsApp.className = "btn-whatsapp";
+botaoWhatsApp.textContent = "Solicitar cancelamento pelo WhatsApp";
 
+botaoWhatsApp.addEventListener("click", () => {
+    const mensagemWhatsApp =
+        `Olá! Gostaria de solicitar o cancelamento do meu agendamento na Barbearia Bruno Almeida.\n\n` +
+        `Nome: ${agendamento.cliente}\n` +
+        `Data: ${formatarData(agendamento.data)}\n` +
+        `Horário: ${agendamento.horario}\n` +
+        `Serviço: ${agendamento.servico}\n\n` +
+        `Aguardo a confirmação. Obrigado!`;
+
+    const linkWhatsApp =
+        `https://wa.me/${WHATSAPP_BARBEARIA}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+
+    window.open(linkWhatsApp, "_blank");
+});
+
+acoes.append(
+    botaoConcluir,
+    botaoCancelar
+);
+
+card.appendChild(acoes);
+card.appendChild(botaoWhatsApp);
             secao.appendChild(card);
         });
 
