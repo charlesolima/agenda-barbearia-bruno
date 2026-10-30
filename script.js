@@ -1097,3 +1097,54 @@ const { data, error } = await supabaseClient
     }); // Fecha data.forEach()
 
 } // Fecha carregarAgendamentosAdmin()
+
+async function consultarAgendamentosCliente() {
+    const telefoneDigitado = telefoneConsulta.value.trim();
+
+    resultadoAgendamentos.innerHTML = "";
+    mensagemConsulta.hidden = false;
+
+    if (!telefoneDigitado) {
+        mensagemConsulta.textContent = "Informe seu telefone para consultar.";
+        return;
+    }
+
+    mensagemConsulta.textContent = "Consultando agendamentos...";
+
+    const { data: agendamentosCliente, error } = await supabaseClient
+        .from("agendamentos")
+        .select("id, cliente, telefone, servico, data, horario, status")
+        .eq("telefone", telefoneDigitado)
+        .order("data", { ascending: true })
+        .order("horario", { ascending: true });
+
+    if (error) {
+        console.error("Erro ao consultar agendamentos:", error);
+        mensagemConsulta.textContent = "Não foi possível consultar seus agendamentos.";
+        return;
+    }
+
+    if (!agendamentosCliente || agendamentosCliente.length === 0) {
+        mensagemConsulta.textContent = "Nenhum agendamento encontrado para esse telefone.";
+        return;
+    }
+
+    mensagemConsulta.textContent = "";
+
+    agendamentosCliente.forEach((agendamento) => {
+        const card = document.createElement("div");
+        card.className = "agendamento";
+
+        const dataFormatada = agendamento.data.split("-").reverse().join("/");
+
+        card.innerHTML = `
+            <strong>${agendamento.servico}</strong>
+            <p>Data: ${dataFormatada}</p>
+            <p>Horário: ${agendamento.horario}</p>
+            <p>Status: ${agendamento.status}</p>
+        `;
+
+        resultadoAgendamentos.appendChild(card);
+    });
+}
+btnConsultarAgendamentos.addEventListener("click", consultarAgendamentosCliente);
