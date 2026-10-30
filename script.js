@@ -6,6 +6,9 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_KEY
 );
 
+// WHATSAPP PARA SOLICITAÇÃO DE CANCELAMENTO
+const WHATSAPP_BARBEARIA = "5511985105189";
+
 /* ==========================
    1. Elementos da página
 ========================== */
