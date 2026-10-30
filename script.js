@@ -1053,11 +1053,15 @@ const { data, error } = await supabaseClient
 
                 await carregarAgendamentosAdmin();
             });
-            card.appendChild(botaoConcluir);
-            console.log("Botão de concluir criado para:", agendamento.cliente);
+                       card.appendChild(botaoConcluir);
+
+            console.log(
+                "Botão de concluir criado para:",
+                agendamento.cliente
+            );
         }
 
-   listaAdmin.appendChild(card);
+        listaAdmin.appendChild(card);
 
         console.log(
             "Agendamento exibido no painel:",
@@ -1066,6 +1070,7 @@ const { data, error } = await supabaseClient
             agendamento.status
         );
 
-    });
+    }); // Fecha o data.forEach
 
+} // Fecha carregarAgendamentosAdmin
 
