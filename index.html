@@ -93,25 +93,42 @@
                </section>
 
         <!-- CONSULTA DE AGENDAMENTOS DO CLIENTE -->
-        <section class="lista meus-agendamentos">
-            <div class="titulo-secao">
-                <span class="etiqueta">ÁREA DO CLIENTE</span>
-                <h2>Meus Agendamentos</h2>
-                <p>Informe seu telefone para consultar suas reservas.</p>
-            </div>
+       </section>
 
-            <div class="campo">
-                <label for="telefoneConsulta">Telefone celular</label>
-                <input
-                    type="tel"
-                    id="telefoneConsulta"
-                    placeholder="(11) 99999-9999"
-                    maxlength="15"
-                    inputmode="numeric"
-                    autocomplete="tel"
-                >
-            </div>
+<!-- CONSULTA DE AGENDAMENTOS DO CLIENTE -->
+<section class="lista meus-agendamentos">
+    <div class="titulo-secao">
+        <span class="etiqueta">ÁREA DO CLIENTE</span>
+        <h2>Meus Agendamentos</h2>
+        <p>Informe seu telefone para consultar suas reservas.</p>
+    </div>
 
+    <div class="campo">
+        <label for="telefoneConsulta">Telefone celular</label>
+        <input
+            type="tel"
+            id="telefoneConsulta"
+            placeholder="(11) 99999-9999"
+            maxlength="15"
+            inputmode="numeric"
+            autocomplete="tel"
+        >
+    </div>
+
+    <button
+        type="button"
+        id="btnConsultarAgendamentos"
+        class="btn-agendar"
+    >
+        Consultar agendamentos
+    </button>
+
+    <p id="mensagemConsulta" class="mensagem" hidden></p>
+
+    <div id="resultadoAgendamentos"></div>
+</section>
+
+<section class="lista">
             <button
                 type="button"
                 id="btnConsultarAgendamentos"
