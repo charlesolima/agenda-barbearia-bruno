@@ -1071,3 +1071,21 @@ select:focus-visible {
         max-width: 320px;
     }
 }
+/* Botão de solicitação de cancelamento pelo WhatsApp */
+.btn-whatsapp {
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px;
+    color: #fff;
+    background: #167c45;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #1b9955;
+    transform: translateY(-2px);
+}
