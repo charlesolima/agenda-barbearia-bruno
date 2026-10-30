@@ -110,7 +110,7 @@
         <span>Estilo em cada detalhe.</span>
     </footer>
 
-     <section id="painelAdmin" style="display: none;">
+     <section id="painelAdmin" class="painel-admin" style="display: none;">
         <h2>Painel do Administrador</h2>
 
         <p>Bem-vindo à administração da Barbearia Bruno Almeida!</p>
@@ -119,19 +119,23 @@
             <p>Os agendamentos aparecerão aqui.</p>
         </div>
 
-        <button type="button" id="btnSairAdmin">
+       <button type="button" id="btnSairAdmin" class="btn-admin btn-sair">
             Sair do administrador
         </button>
     </section>
 
-    <div id="acessoAdmin">
-        <button type="button" id="btnMostrarLogin">
-            Acesso do administrador
-        </button>
-    </div>
+  <div id="acessoAdmin" class="acesso-admin">
+    <button
+        type="button"
+        id="btnMostrarLogin"
+        class="btn-admin btn-acesso"
+    >
+        ♙ Acesso do administrador
+    </button>
+</div>
 
    
-<section id="areaLogin" style="display: none;">
+<section id="areaLogin" class="area-login" style="display: none;">
     <h2>Login do Administrador</h2>
 
     <label for="emailAdmin">E-mail:</label>
@@ -150,8 +154,21 @@
         autocomplete="off"
     >
 
-    <button type="button" id="btnEntrarAdmin">Entrar</button>
-    <button type="button" id="btnFecharLogin">Fechar</button>
+   <button
+    type="button"
+    id="btnEntrarAdmin"
+    class="btn-admin btn-entrar"
+>
+    Entrar
+</button>
+
+<button
+    type="button"
+    id="btnFecharLogin"
+    class="btn-admin btn-fechar"
+>
+    Fechar
+</button>
 
     <p id="mensagemLogin"></p>
 </section>
