@@ -126,22 +126,33 @@ data.min = obterDataAtual();
    3. Formatar telefone
 ========================== */
 
-telefoneConsulta.addEventListener("input", () => {
-    let valor = telefoneConsulta.value.replace(/\D/g, "");
+function aplicarMascaraTelefone(campo) {
+    campo.addEventListener("input", () => {
+        let valor = campo.value.replace(/\D/g, "");
 
-    valor = valor.substring(0, 11);
+        valor = valor.substring(0, 11);
 
-    if (valor.length > 7) {
-        valor = valor.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
-    } else if (valor.length > 2) {
-        valor = valor.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
-    } else if (valor.length > 0) {
-        valor = valor.replace(/^(\d*)/, "($1");
-    }
+        if (valor.length > 7) {
+            valor = valor.replace(
+                /^(\d{2})(\d{5})(\d{0,4}).*/,
+                "($1) $2-$3"
+            );
+        } else if (valor.length > 2) {
+            valor = valor.replace(
+                /^(\d{2})(\d{0,5})/,
+                "($1) $2"
+            );
+        } else if (valor.length > 0) {
+            valor = "(" + valor;
+        }
 
-    telefoneConsulta.value = valor;
-});
+        campo.value = valor;
+    });
+}
 
+// Aplicar a mesma máscara nos dois campos
+aplicarMascaraTelefone(telefone);
+aplicarMascaraTelefone(telefoneConsulta);
 
 /* ==========================
    4. Gerar horários
