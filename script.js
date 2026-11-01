@@ -1147,20 +1147,43 @@ async function consultarAgendamentosCliente() {
 
     mensagemConsulta.textContent = "";
 
-    agendamentosCliente.forEach((agendamento) => {
-        const card = document.createElement("div");
-        card.className = "agendamento";
+  agendamentosCliente.forEach((agendamento) => {
+    const card = document.createElement("div");
+    card.className = "agendamento";
 
-        const dataFormatada = agendamento.data.split("-").reverse().join("/");
+    const dataFormatada = agendamento.data.split("-").reverse().join("/");
 
-        card.innerHTML = `
-            <strong>${agendamento.servico}</strong>
-            <p>Data: ${dataFormatada}</p>
-            <p>Horário: ${agendamento.horario}</p>
-            <p>Status: ${agendamento.status}</p>
-        `;
+    card.innerHTML = `
+        <strong>${agendamento.servico}</strong>
+        <p>Data: ${dataFormatada}</p>
+        <p>Horário: ${agendamento.horario}</p>
+        <p>Status: ${agendamento.status}</p>
+    `;
 
-        resultadoAgendamentos.appendChild(card);
-    });
+    // Exibe o botão somente para agendamentos ativos
+    if (agendamento.status === "agendado") {
+        const botaoWhatsApp = document.createElement("a");
+
+        const mensagemWhatsApp =
+            `Olá! Gostaria de solicitar o cancelamento do meu agendamento.\n\n` +
+            `Serviço: ${agendamento.servico}\n` +
+            `Data: ${dataFormatada}\n` +
+            `Horário: ${agendamento.horario}\n\n` +
+            `Aguardo a confirmação.`;
+
+        botaoWhatsApp.href =
+            `https://wa.me/${WHATSAPP_BARBEARIA}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+
+        botaoWhatsApp.target = "_blank";
+        botaoWhatsApp.rel = "noopener noreferrer";
+        botaoWhatsApp.className = "btn-whatsapp-cancelamento";
+        botaoWhatsApp.textContent = "Solicitar cancelamento pelo WhatsApp";
+
+        card.appendChild(botaoWhatsApp);
+    }
+
+    resultadoAgendamentos.appendChild(card);
+});
+
 }
 btnConsultarAgendamentos.addEventListener("click", consultarAgendamentosCliente);
