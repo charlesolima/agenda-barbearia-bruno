@@ -1135,6 +1135,9 @@ async function consultarAgendamentosCliente() {
         .select("id, cliente, telefone, servico, data, horario, status")
         .eq("telefone", telefoneConsulta.value.trim())
         .order("data", { ascending: true })
+            console.log("Telefone pesquisado:", telefoneConsulta.value);
+            console.log("Dados encontrados:", agendamentosCliente);
+            console.log("Erro:", error);  
         .order("horario", { ascending: true });
 
     if (error) {
