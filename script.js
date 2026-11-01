@@ -126,23 +126,20 @@ data.min = obterDataAtual();
    3. Formatar telefone
 ========================== */
 
-telefone.addEventListener("input", function () {
-    const numeros = telefone.value
-        .replace(/\D/g, "")
-        .slice(0, 11);
+telefoneConsulta.addEventListener("input", () => {
+    let valor = telefoneConsulta.value.replace(/\D/g, "");
 
-    if (numeros.length === 0) {
-        telefone.value = "";
-    } else if (numeros.length <= 2) {
-        telefone.value = `(${numeros}`;
-    } else {
-        telefone.value =
-            `(${numeros.slice(0, 2)}) ` +
-            numeros.slice(2, 7) +
-            (numeros.length > 7
-                ? `-${numeros.slice(7)}`
-                : "");
+    valor = valor.substring(0, 11);
+
+    if (valor.length > 7) {
+        valor = valor.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (valor.length > 2) {
+        valor = valor.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+    } else if (valor.length > 0) {
+        valor = valor.replace(/^(\d*)/, "($1");
     }
+
+    telefoneConsulta.value = valor;
 });
 
 
