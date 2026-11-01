@@ -1101,7 +1101,7 @@ const { data, error } = await supabaseClient
 } // Fecha carregarAgendamentosAdmin()
 
 async function consultarAgendamentosCliente() {
-    const telefoneDigitado = telefoneConsulta.value.trim();
+    const telefoneDigitado = telefoneConsulta.value.replace(/\D/g, "");
 
     resultadoAgendamentos.innerHTML = "";
     mensagemConsulta.hidden = false;
