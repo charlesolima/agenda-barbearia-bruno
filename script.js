@@ -133,15 +133,9 @@ function aplicarMascaraTelefone(campo) {
         valor = valor.substring(0, 11);
 
         if (valor.length > 7) {
-            valor = valor.replace(
-                /^(\d{2})(\d{5})(\d{0,4}).*/,
-                "($1) $2-$3"
-            );
+            valor = valor.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
         } else if (valor.length > 2) {
-            valor = valor.replace(
-                /^(\d{2})(\d{0,5})/,
-                "($1) $2"
-            );
+            valor = valor.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
         } else if (valor.length > 0) {
             valor = "(" + valor;
         }
@@ -150,7 +144,7 @@ function aplicarMascaraTelefone(campo) {
     });
 }
 
-// Aplicar a mesma máscara nos dois campos
+// Aplicar a mesma formatação nos dois campos
 aplicarMascaraTelefone(telefone);
 aplicarMascaraTelefone(telefoneConsulta);
 
