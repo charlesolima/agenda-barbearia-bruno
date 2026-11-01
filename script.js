@@ -1142,7 +1142,11 @@ async function consultarAgendamentosCliente() {
         mensagemConsulta.textContent = "Não foi possível consultar seus agendamentos.";
         return;
     }
-
+    
+    console.log("Telefone pesquisado:", telefoneConsulta.value.trim());
+    console.log("Agendamentos retornados:", agendamentosCliente);
+    console.log("Erro:", error);
+    
     if (!agendamentosCliente || agendamentosCliente.length === 0) {
         mensagemConsulta.textContent = "Nenhum agendamento encontrado para esse telefone.";
         return;
