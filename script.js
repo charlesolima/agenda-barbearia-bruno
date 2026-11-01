@@ -1128,6 +1128,9 @@ async function consultarAgendamentosCliente() {
     mensagemConsulta.textContent = "Consultando agendamentos...";
 
     const { data: agendamentosCliente, error } = await supabaseClient
+        console.log("Telefone consultado:", telefoneConsulta.value.trim());
+        console.log("Resultado Supabase:", agendamentosCliente);
+        console.log("Erro Supabase:", error);
         .from("agendamentos")
         .select("id, cliente, telefone, servico, data, horario, status")
         .eq("telefone", telefoneConsulta.value.trim())
