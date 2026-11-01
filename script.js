@@ -1130,7 +1130,7 @@ async function consultarAgendamentosCliente() {
     const { data: agendamentosCliente, error } = await supabaseClient
         .from("agendamentos")
         .select("id, cliente, telefone, servico, data, horario, status")
-        .eq("telefone", telefoneDigitado)
+        .eq("telefone", telefoneConsulta.value.trim())
         .order("data", { ascending: true })
         .order("horario", { ascending: true });
 
