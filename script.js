@@ -1046,7 +1046,21 @@ const { data, error } = await supabaseClient
             botaoConcluir.classList.add("btn-concluir-admin");
 
             botaoConcluir.addEventListener("click", async () => {
-                const confirmar = confirm(
+
+    const dataHoraAgendamento = new Date(
+        `${agendamento.data}T${agendamento.horario}`
+    );
+
+    const agora = new Date();
+
+    if (dataHoraAgendamento > agora) {
+        alert(
+            "Não é possível concluir um serviço antes da data e do horário agendados."
+        );
+        return;
+    }
+
+    const confirmar = confirm(
                     `Deseja marcar o agendamento de ${agendamento.cliente} do dia ${partesData[2]}/${partesData[1]}/${partesData[0]} às ${agendamento.horario} como concluído?`
                 );
 
