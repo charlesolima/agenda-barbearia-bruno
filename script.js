@@ -1116,6 +1116,7 @@ const { data, error } = await supabaseClient
 
 async function consultarAgendamentosCliente() {
     const telefoneDigitado = telefoneConsulta.value.replace(/\D/g, "");
+    .eq("telefone", telefoneDigitado)
 
     resultadoAgendamentos.innerHTML = "";
     mensagemConsulta.hidden = false;
