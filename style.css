@@ -851,3 +851,16 @@ main.conteudo > section.agenda {
     margin-left: auto;
     margin-right: auto;
 }
+.acesso-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.btn-acesso {
+    display: block;
+    margin: 0 auto;
+}
+
