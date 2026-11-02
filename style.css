@@ -863,4 +863,18 @@ main.conteudo > section.agenda {
     display: block;
     margin: 0 auto;
 }
+/* Centralização do acesso do administrador */
+#acessoAdmin {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
 
+#btnMostrarLogin {
+    display: block;
+    margin: 0 auto;
+}
