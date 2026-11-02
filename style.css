@@ -226,10 +226,6 @@ select:focus-visible {
     background-color: #d4a017;
 }
 
-/* ==========================
-   5. Horários
-========================== */
-
 .horarios {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -246,10 +242,54 @@ select:focus-visible {
     font-weight: 600;
     cursor: pointer;
     transition:
-      background-color 0.2s ease,
+        background-color 0.2s ease,
         border-color 0.2s ease,
         color 0.2s ease,
         transform 0.2s ease;
+}
+
+/* Horários disponíveis */
+.horarios button.horario-disponivel:not(:disabled) {
+    color: var(--texto);
+    background: var(--superficie-elevada);
+    border-color: var(--borda);
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+.horarios button.horario-disponivel:not(:disabled):hover {
+    border-color: var(--dourado);
+    color: var(--dourado-claro);
+    background: #332a15;
+}
+
+/* Horário selecionado */
+.horarios button.horario-selecionado {
+    color: #17120a;
+    background: var(--dourado-claro);
+    border-color: var(--dourado-claro);
+    font-weight: 800;
+}
+
+/* Horários ocupados */
+.horarios button.horario-ocupado,
+.horarios button.horario-ocupado:disabled {
+    color: #d9a5a5;
+    background: #382525;
+    border-color: #704040;
+    cursor: not-allowed;
+    opacity: 0.9;
+    text-decoration: line-through;
+}
+
+/* Horários passados ou indisponíveis */
+.horarios button.horario-passado,
+.horarios button:disabled:not(.horario-ocupado) {
+    color: #777;
+    background: #202020;
+    border-color: #383838;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .legenda-horarios {
@@ -257,7 +297,6 @@ select:focus-visible {
     color: var(--texto-suave);
     font-size: 0.8rem;
 }
-
 
 /* ==========================
    6. Botão de agendamento
