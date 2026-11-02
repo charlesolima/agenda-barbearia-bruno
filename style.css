@@ -103,7 +103,13 @@ select:focus-visible {
     letter-spacing: 2px;
 }
 
-.descricao-cabecalho {
+.titulo-secao .etiqueta {
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
     margin-top: 8px;
     color: var(--texto-suave);
 }
