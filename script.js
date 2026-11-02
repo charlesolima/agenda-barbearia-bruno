@@ -1120,17 +1120,4 @@ document.getElementById("btnMostrarSenha").addEventListener("click", function ()
         : "Mostrar senha";
 });
 
-document.addEventListener("click", function (evento) {
-    if (evento.target.id === "btnMostrarSenha") {
-        const campoSenha = document.getElementById("senhaAdmin");
-
-        if (campoSenha.type === "password") {
-            campoSenha.type = "text";
-            evento.target.textContent = "Ocultar senha";
-        } else {
-            campoSenha.type = "password";
-            evento.target.textContent = "Mostrar senha";
-        }
-    }
-});
 
