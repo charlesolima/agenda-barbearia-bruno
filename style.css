@@ -203,6 +203,7 @@ select:focus-visible {
     box-shadow: 0 0 0 3px rgb(212 160 23 / 16%);
 }
 
+
 /* Aparência exclusiva da caixa de Serviços */
 .campo select {
     min-height: 54px;
@@ -214,7 +215,9 @@ select:focus-visible {
     background-size: 16px;
     appearance: none;
     -webkit-appearance: none;
-   /* Aparência das opções de serviços */
+}
+
+/* Aparência das opções de serviços */
 .campo select option {
     color: #f5f5f5;
     background-color: #1b1b1b;
@@ -225,7 +228,6 @@ select:focus-visible {
     color: #17120a;
     background-color: #d4a017;
 }
-
 
 /* ==========================
    5. Horários
