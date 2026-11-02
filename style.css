@@ -927,3 +927,49 @@ main.conteudo > section.agenda {
     box-shadow: 0 0 10px rgb(212 160 23 / 12%);
 }
 
+/* ==========================
+   14. Estilo dos horários
+========================== */
+
+/* Horários disponíveis */
+.horario-disponivel {
+    background: #1b1b1b;
+    color: var(--dourado-claro);
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.horario-disponivel:hover {
+    background: var(--dourado);
+    color: #111111;
+    box-shadow: 0 0 12px rgb(212 160 23 / 30%);
+}
+
+/* Horário selecionado */
+.horario-selecionado {
+    background: var(--dourado) !important;
+    color: #111111 !important;
+    border: 1px solid var(--dourado-claro);
+    font-weight: bold;
+    box-shadow: 0 0 12px rgb(212 160 23 / 35%);
+}
+
+/* Horários ocupados */
+.horario-ocupado {
+    background: #292929;
+    color: #777777;
+    border: 1px solid #444444;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+/* Horários que já passaram */
+.horario-passado {
+    background: #181818;
+    color: #666666;
+    border: 1px solid #333333;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
