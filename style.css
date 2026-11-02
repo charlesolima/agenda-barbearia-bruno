@@ -203,11 +203,18 @@ select:focus-visible {
     box-shadow: 0 0 0 3px rgb(212 160 23 / 16%);
 }
 
+/* Aparência exclusiva da caixa de Serviços */
 .campo select {
-    cursor: pointer;
+    min-height: 54px;
+    padding: 12px 42px 12px 15px;
+    background-color: #151515;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f0c75e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
 }
-
-
 
 /* ==========================
    5. Horários
