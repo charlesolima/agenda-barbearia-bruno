@@ -102,7 +102,6 @@ select:focus-visible {
     font-weight: 700;
     letter-spacing: 2px;
 }
-
 .titulo-secao .etiqueta {
     display: block;
     font-size: 1.5rem;
@@ -110,10 +109,11 @@ select:focus-visible {
     letter-spacing: 2px;
     margin-bottom: 12px;
 }
+
+.descricao-cabecalho {
     margin-top: 8px;
     color: var(--texto-suave);
 }
-
 /* ==========================
    3. Conteúdo principal
 ========================== */
