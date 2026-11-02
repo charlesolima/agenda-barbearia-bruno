@@ -78,8 +78,8 @@ select:focus-visible {
 
 .logo {
     display: block;
-    width: 90px;
-    height: 90px;
+    width: 115px;
+    height: 115px;
     flex-shrink: 0;
     object-fit: contain;
     border-radius: 50%;
