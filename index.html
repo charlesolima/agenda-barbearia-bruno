@@ -31,54 +31,67 @@
     
 <main class="conteudo">
 
-    <section class="agenda">
+    <div class="titulo-secao">
+    <span class="etiqueta">AGENDE SEU HORÁRIO</span>
+    <h2>Novo agendamento</h2>
+    <p>Preencha os dados e escolha o melhor horário para você.</p>
+</div>
 
-        <div class="titulo-secao">
-            <span class="etiqueta">AGENDE SEU HORÁRIO</span>
-            <h2>Novo agendamento</h2>
-            <p>Preencha os dados e escolha o melhor horário para você.</p>
-        </div>
+<div class="campo campo-moderno">
+    <span class="icone-campo">👤</span>
+    <div class="conteudo-campo">
+        <label for="cliente">Nome completo</label>
+        <input
+            type="text"
+            id="cliente"
+            placeholder="Digite seu nome"
+            autocomplete="off"
+            required
+        >
+    </div>
+</div>
 
-        <div class="campo">
-            <label for="cliente">Nome do cliente</label>
-            <input
-                type="text"
-                id="cliente"
-                placeholder="Digite seu nome completo"
-                autocomplete="off"
-                required
-            >
-        </div>
+<div class="campo campo-moderno">
+    <span class="icone-campo">☎</span>
+    <div class="conteudo-campo">
+        <label for="telefone">Telefone (com DDD)</label>
+        <input
+            type="tel"
+            id="telefone"
+            placeholder="(11) 99999-9999"
+            maxlength="15"
+            inputmode="numeric"
+            autocomplete="tel"
+            required
+        >
+    </div>
+</div>
 
-        <div class="campo">
-            <label for="telefone">Telefone celular</label>
-            <input
-                type="tel"
-                id="telefone"
-                placeholder="(11) 99999-9999"
-                maxlength="15"
-                inputmode="numeric"
-                autocomplete="tel"
-                required
-            >
-        </div>
+<div class="campo campo-moderno">
+    <span class="icone-campo">✂</span>
+    <div class="conteudo-campo">
+        <label for="servico">Serviço</label>
+        <select id="servico" required>
+            <option value="">Selecione o serviço</option>
+            <option value="Corte">Corte - R$ 40,00</option>
+            <option value="Barba">Barba - R$ 25,00</option>
+            <option value="Corte + Barba">Corte + Barba - R$ 55,00</option>
+            <option value="Sobrancelha">Sobrancelha - R$ 15,00</option>
+        </select>
+    </div>
+</div>
 
-        <div class="campo">
-            <label for="servico">Serviço desejado</label>
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte">Corte - R$ 40,00</option>
-                <option value="Barba">Barba - R$ 25,00</option>
-                <option value="Corte + Barba">Corte + Barba - R$ 55,00</option>
-                <option value="Sobrancelha">Sobrancelha - R$ 15,00</option>
-            </select>
-        </div>
-
-        <div class="campo">
-            <label for="data">Data do agendamento</label>
-            <input type="date" id="data" required>
-        </div>
-
+<div class="campo campo-moderno">
+    <span class="icone-campo">▦</span>
+    <div class="conteudo-campo">
+        <label for="data">Data</label>
+        <input
+            type="date"
+            id="data"
+            required
+        >
+    </div>
+</div>
         <div class="campo">
             <label for="horarios">Escolha o horário</label>
             <div id="horarios" class="horarios"></div>
