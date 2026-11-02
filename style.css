@@ -751,189 +751,62 @@ select:focus-visible {
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
+/* BOTÕES DOS AGENDAMENTOS ADMINISTRATIVOS */
 
-/* BOTÕES DA CAIXA */
-#listaAdmin .agendamento-admin button {
+#painelAdmin #listaAdmin .agendamento-admin button {
     display: inline-block;
-    margin: 6px 8px 0 0;
-    padding: 10px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease,
-                transform 0.2s ease;
-}
-
-/* BOTÃO CANCELAR */
-#listaAdmin .btn-cancelar-admin {
-    background: #c9a227;
-    color: #111;
-    border: 1px solid #c9a227;
-}
-
-#listaAdmin .btn-cancelar-admin:hover {
-    background: #e0b735;
-    transform: translateY(-1px);
-}
-
-/* BOTÃO CONCLUIR */
-#listaAdmin .btn-concluir-admin {
-    background: #333;
-    color: #f5f5f5;
-    border: 1px solid #c9a227;
-}
-
-#listaAdmin .btn-concluir-admin:hover {
-    background: #444;
-    transform: translateY(-1px);
-}
-
-/* AJUSTE PARA CELULARES */
-@media (max-width: 480px) {
-    #listaAdmin .agendamento-admin {
-        padding: 15px;
-    }
-
-    #listaAdmin .agendamento-admin button {
-        width: 100%;
-        margin: 6px 0 0;
-    }
-}
-
-
-/* ===== BOTÕES DO PAINEL ADMINISTRATIVO ===== */
-
-#listaAdmin .agendamento-admin button {
-    display: inline-block;
-    padding: 11px 16px;
     margin: 8px 8px 0 0;
+    padding: 11px 16px;
     border-radius: 6px;
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
 }
 
-/* Cancelar agendamento: dourado */
-#listaAdmin .agendamento-admin .btn-cancelar-admin {
-    background-color: #c9a227;
+/* BOTÃO CANCELAR */
+
+#painelAdmin #listaAdmin .agendamento-admin .btn-cancelar-admin {
+    background: #c9a227;
     color: #111111;
     border: 1px solid #c9a227;
 }
 
-#listaAdmin .agendamento-admin .btn-cancelar-admin:hover {
-    background-color: #e0b735;
+#painelAdmin #listaAdmin .agendamento-admin .btn-cancelar-admin:hover {
+    background: #e0b735;
     transform: translateY(-1px);
 }
 
-/* Marcar como concluído: preto com borda dourada */
-#listaAdmin .agendamento-admin .btn-concluir-admin {
-    background-color: #333333;
+/* BOTÃO CONCLUIR */
+
+#painelAdmin #listaAdmin .agendamento-admin .btn-concluir-admin {
+    background: #333333;
     color: #ffffff;
     border: 1px solid #c9a227;
 }
 
-#listaAdmin .agendamento-admin .btn-concluir-admin:hover {
-    background-color: #454545;
+#painelAdmin #listaAdmin .agendamento-admin .btn-concluir-admin:hover {
+    background: #454545;
     transform: translateY(-1px);
 }
 
-/* Botões desativados durante uma operação */
-#listaAdmin .agendamento-admin button:disabled {
+/* BOTÕES DESATIVADOS */
+
+#painelAdmin #listaAdmin .agendamento-admin button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
 }
 
-/* Ajuste para celulares */
-@media (max-width: 480px) {
-    #listaAdmin .agendamento-admin button {
-        display: block;
-        width: 100%;
-        margin: 8px 0 0;
-        box-sizing: border-box;
-    }
-}
-
-
-/* FORÇAR ESTILO DOS BOTÕES DO PAINEL ADMINISTRATIVO */
-
-#painelAdmin #listaAdmin .agendamento-admin button.btn-cancelar-admin {
-    background: #c9a227 !important;
-    color: #111111 !important;
-    border: 1px solid #c9a227 !important;
-    border-radius: 6px !important;
-    padding: 11px 16px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-}
-
-#painelAdmin #listaAdmin .agendamento-admin button.btn-concluir-admin {
-    background: #333333 !important;
-    color: #ffffff !important;
-    border: 1px solid #c9a227 !important;
-    border-radius: 6px !important;
-    padding: 11px 16px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-}
-
-#painelAdmin #listaAdmin .agendamento-admin button.btn-cancelar-admin:hover {
-    background: #e0b735 !important;
-}
-
-#painelAdmin #listaAdmin .agendamento-admin button.btn-concluir-admin:hover {
-    background: #454545 !important;
-}
+/* AJUSTE PARA CELULARES */
 
 @media (max-width: 480px) {
     #painelAdmin #listaAdmin .agendamento-admin button {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 8px 0 0 !important;
-    }
-}
-
-/* BOTÕES DO PAINEL ADMINISTRATIVO */
-
-#listaAdmin .btn-cancelar-admin {
-    background-color: #c9a227 !important;
-    color: #111111 !important;
-    border: 1px solid #c9a227 !important;
-    border-radius: 6px !important;
-    padding: 11px 16px !important;
-    font-size: 14px !important;
-    font-weight: bold !important;
-    cursor: pointer;
-}
-
-#listaAdmin .btn-concluir-admin {
-    background-color: #333333 !important;
-    color: #ffffff !important;
-    border: 1px solid #c9a227 !important;
-    border-radius: 6px !important;
-    padding: 11px 16px !important;
-    font-size: 14px !important;
-    font-weight: bold !important;
-    cursor: pointer;
-}
-
-#listaAdmin .btn-cancelar-admin:hover {
-    background-color: #e0b735 !important;
-}
-
-#listaAdmin .btn-concluir-admin:hover {
-    background-color: #454545 !important;
-}
-
-@media (max-width: 480px) {
-    #listaAdmin .btn-cancelar-admin,
-    #listaAdmin .btn-concluir-admin {
+        display: block;
         width: 100%;
-        margin-top: 8px;
+        margin: 8px 0 0;
         box-sizing: border-box;
     }
 }
