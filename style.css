@@ -899,3 +899,31 @@ main.conteudo > section.agenda {
     cursor: pointer;
     white-space: nowrap;
 }
+
+
+/* ==========================
+   13. Ícones dos campos
+========================== */
+
+.campo label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.icone-campo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--dourado-claro);
+    background: linear-gradient(145deg, #30250d, #17130b);
+    border: 1px solid var(--dourado);
+    border-radius: 9px;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgb(212 160 23 / 12%);
+}
+
