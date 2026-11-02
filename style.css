@@ -214,7 +214,18 @@ select:focus-visible {
     background-size: 16px;
     appearance: none;
     -webkit-appearance: none;
+   /* Aparência das opções de serviços */
+.campo select option {
+    color: #f5f5f5;
+    background-color: #1b1b1b;
 }
+
+/* Opção selecionada */
+.campo select option:checked {
+    color: #17120a;
+    background-color: #d4a017;
+}
+
 
 /* ==========================
    5. Horários
