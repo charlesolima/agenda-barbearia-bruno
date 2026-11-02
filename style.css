@@ -878,3 +878,24 @@ main.conteudo > section.agenda {
     display: block;
     margin: 0 auto;
 }
+
+.campo-senha {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.campo-senha input {
+    flex: 1;
+    min-width: 0;
+}
+
+#btnMostrarSenha {
+    padding: 10px;
+    color: var(--dourado-claro);
+    background: transparent;
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
