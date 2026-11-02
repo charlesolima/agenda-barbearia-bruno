@@ -156,18 +156,20 @@ select:focus-visible {
     font-size: 0.93rem;
 }
 
+
 /* ==========================
    4. Campos do formulário
 ========================== */
 
 .campo {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .campo label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 0.92rem;
+    margin-bottom: 9px;
+    color: var(--dourado-claro);
+    font-size: 0.93rem;
     font-weight: 600;
 }
 
@@ -175,28 +177,36 @@ select:focus-visible {
 .campo select {
     display: block;
     width: 100%;
-    min-height: 48px;
-    padding: 12px 14px;
+    min-height: 52px;
+    padding: 13px 15px;
     color: var(--texto);
-    background: #121212;
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    background: linear-gradient(145deg, #171717, #111);
+    border: 1px solid #454545;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .campo input::placeholder {
     color: #858585;
 }
 
+.campo input:hover,
+.campo select:hover {
+    border-color: #8c6b19;
+}
+
 .campo input:focus,
 .campo select:focus {
-    border-color: var(--dourado);
-    box-shadow: 0 0 0 3px rgb(212 160 23 / 12%);
+    outline: none;
+    border-color: var(--dourado-claro);
+    box-shadow: 0 0 0 3px rgb(212 160 23 / 16%);
 }
 
 .campo select {
     cursor: pointer;
 }
+
 
 /* ==========================
    5. Horários
