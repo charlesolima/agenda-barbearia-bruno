@@ -140,20 +140,18 @@ select:focus-visible {
     box-shadow: var(--sombra);
 }
 
-.titulo-secao {
-    margin-bottom: 26px;
-}
 
-.titulo-secao h2 {
-    margin: 5px 0 12px;
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    line-height: 1.3;
+.titulo-secao {
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .titulo-secao > p {
+    max-width: 380px;
+    margin: 0 auto;
     color: var(--texto-suave);
     font-size: 0.93rem;
+    line-height: 1.6;
 }
 
 
