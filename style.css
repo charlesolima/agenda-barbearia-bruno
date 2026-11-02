@@ -1,11 +1,8 @@
-
 /* ==========================
    1. Cores e configurações
 ========================== */
-
 :root {
     color-scheme: dark;
-
     --fundo: #101010;
     --superficie: #1b1b1b;
     --superficie-elevada: #242424;
@@ -18,7 +15,6 @@
     --erro-texto: #ffbaba;
     --sucesso-fundo: #203d2b;
     --sucesso-texto: #b8f5c8;
-
     --raio: 12px;
     --sombra: 0 12px 30px rgb(0 0 0 / 20%);
 }
@@ -33,15 +29,11 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    background:
-        radial-gradient(ellipse at top, #292211 0%, transparent 45%),
-        var(--fundo);
+    background: radial-gradient(ellipse at top, #292211 0%, transparent 45%), var(--fundo);
     color: var(--texto);
 }
 
-button,
-input,
-select {
+button, input, select {
     font: inherit;
 }
 
@@ -49,9 +41,7 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
+button:focus-visible, input:focus-visible, select:focus-visible {
     outline: 2px solid var(--dourado-claro);
     outline-offset: 3px;
 }
@@ -59,7 +49,6 @@ select:focus-visible {
 /* ==========================
    2. Cabeçalho e identidade
 ========================== */
-
 .cabecalho {
     padding: 28px 20px;
     background: rgb(17 17 17 / 92%);
@@ -95,13 +84,13 @@ select:focus-visible {
     color: var(--dourado-claro);
 }
 
-.subtitulo,
-.etiqueta {
+.subtitulo, .etiqueta {
     color: var(--dourado-claro);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
+
 .titulo-secao .etiqueta {
     display: block;
     font-size: 1.5rem;
@@ -114,10 +103,10 @@ select:focus-visible {
     margin-top: 8px;
     color: var(--texto-suave);
 }
+
 /* ==========================
    3. Conteúdo principal
 ========================== */
-
 .conteudo {
     display: flex;
     justify-content: center;
@@ -133,13 +122,11 @@ select:focus-visible {
     max-width: 500px;
     margin: 0 auto;
     padding: clamp(20px, 4vw, 32px);
-
     background: linear-gradient(145deg, #202020, #181818);
     border: 1px solid var(--dourado);
     border-radius: var(--raio);
     box-shadow: var(--sombra);
 }
-
 
 .titulo-secao {
     margin-bottom: 30px;
@@ -157,7 +144,6 @@ select:focus-visible {
 /* ==========================
    4. Campos do formulário
 ========================== */
-
 .campo {
     margin-bottom: 22px;
 }
@@ -170,8 +156,7 @@ select:focus-visible {
     font-weight: 600;
 }
 
-.campo input,
-.campo select {
+.campo input, .campo select {
     display: block;
     width: 100%;
     min-height: 52px;
@@ -188,20 +173,17 @@ select:focus-visible {
     color: #858585;
 }
 
-.campo input:hover,
-.campo select:hover {
+.campo input:hover, .campo select:hover {
     border-color: #8c6b19;
 }
 
-.campo input:focus,
-.campo select:focus {
+.campo input:focus, .campo select:focus {
     outline: none;
     border-color: var(--dourado-claro);
     box-shadow: 0 0 0 3px rgb(212 160 23 / 16%);
 }
 
-
-/* Aparência exclusiva da caixa de Serviços */
+/* Aparência da caixa de serviços */
 .campo select {
     min-height: 54px;
     padding: 12px 42px 12px 15px;
@@ -214,18 +196,19 @@ select:focus-visible {
     -webkit-appearance: none;
 }
 
-/* Aparência das opções de serviços */
 .campo select option {
     color: #f5f5f5;
     background-color: #1b1b1b;
 }
 
-/* Opção selecionada */
 .campo select option:checked {
     color: #17120a;
     background-color: #d4a017;
 }
 
+/* ==========================
+   5. Seleção de horários
+========================== */
 .horarios {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -241,14 +224,9 @@ select:focus-visible {
     border-radius: 9px;
     font-weight: 600;
     cursor: pointer;
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* Horários disponíveis */
 .horarios button.horario-disponivel:not(:disabled) {
     color: var(--texto);
     background: var(--superficie-elevada);
@@ -256,14 +234,12 @@ select:focus-visible {
     cursor: pointer;
 }
 
-/* Efeito ao passar o mouse */
 .horarios button.horario-disponivel:not(:disabled):hover {
     border-color: var(--dourado);
     color: var(--dourado-claro);
     background: #332a15;
 }
 
-/* Horário selecionado */
 .horarios button.horario-selecionado {
     color: #17120a;
     background: var(--dourado-claro);
@@ -271,7 +247,6 @@ select:focus-visible {
     font-weight: 800;
 }
 
-/* Horários ocupados */
 .horarios button.horario-ocupado,
 .horarios button.horario-ocupado:disabled {
     color: #d9a5a5;
@@ -282,7 +257,6 @@ select:focus-visible {
     text-decoration: line-through;
 }
 
-/* Horários passados ou indisponíveis */
 .horarios button.horario-passado,
 .horarios button:disabled:not(.horario-ocupado) {
     color: #777;
@@ -298,10 +272,21 @@ select:focus-visible {
     font-size: 0.8rem;
 }
 
+.campo.data-selecionada {
+    padding: 12px;
+    border: 1px solid var(--dourado);
+    border-radius: var(--raio);
+    background: rgb(212 160 23 / 6%);
+}
+
+.campo.data-selecionada input[type="date"] {
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 2px rgb(212 160 23 / 12%);
+}
+
 /* ==========================
    6. Botão de agendamento
 ========================== */
-
 .btn-agendar {
     display: block;
     width: 100%;
@@ -309,12 +294,7 @@ select:focus-visible {
     margin-top: 12px;
     padding: 14px 18px;
     color: #17120a;
-    background: linear-gradient(
-        135deg,
-        #f5d477,
-        var(--dourado),
-        #bd8b0c
-    );
+    background: linear-gradient(135deg, #f5d477, var(--dourado), #bd8b0c);
     border: 1px solid var(--dourado-claro);
     border-radius: 10px;
     font-size: 1rem;
@@ -322,10 +302,7 @@ select:focus-visible {
     letter-spacing: 0.5px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgb(212 160 23 / 15%);
-    transition:
-        filter 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-agendar:hover {
@@ -347,7 +324,6 @@ select:focus-visible {
 /* ==========================
    7. Mensagens de validação
 ========================== */
-
 .mensagem {
     margin-top: 16px;
     padding: 12px 14px;
@@ -372,9 +348,8 @@ select:focus-visible {
 }
 
 /* ==========================
-   8. Cartões de agendamento
+   8. Cartões e listas de agendamentos
 ========================== */
-
 .agendamento {
     padding: 17px;
     margin-bottom: 12px;
@@ -396,13 +371,123 @@ select:focus-visible {
     font-size: 0.9rem;
 }
 
-.btn-cancelar {
+.data-agendamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: rgb(212 160 23 / 12%);
+    border-left: 4px solid var(--dourado);
+    border-radius: 6px;
+    color: var(--dourado-claro);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.etiqueta-hoje {
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: var(--dourado);
+    color: #111;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.horario-agendamento {
+    font-weight: 700;
+    color: var(--dourado-claro);
+}
+
+.lista-vazia {
+    padding: 18px;
+    border: 1px dashed var(--borda);
+    border-radius: var(--raio);
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.grupo-agendamentos {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+.grupo-agendamentos:first-child {
+    margin-top: 0;
+}
+
+.cabecalho-grupo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-grupo h3 {
+    margin: 0;
+    color: var(--texto);
+    font-size: 1.05rem;
+}
+
+.contador-agendamentos {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 20px;
+    background: var(--dourado);
+    color: #111;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.grupo-agendamentos.historico .agendamento {
+    border-color: var(--borda);
+    opacity: 0.85;
+}
+
+.grupo-agendamentos.historico .cabecalho-grupo h3 {
+    color: var(--texto-suave);
+}
+
+.grupo-agendamentos .agendamento + .agendamento {
+    margin-top: 14px;
+}
+
+.acoes-agendamento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-concluir, .btn-cancelar {
     min-height: 38px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.btn-concluir {
+    background: #dca91e;
+    color: #111;
+    border: 1px solid #dca91e;
+}
+
+.btn-cancelar {
     margin-top: 12px;
     padding: 8px 13px;
-    color: #ffbaba;
+    color: #ffb0b0;
     background: transparent;
-    border: 1px solid #704040;
+    border: 1px solid #754040;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s;
@@ -412,10 +497,257 @@ select:focus-visible {
     background: #492323;
 }
 
-/* ==========================
-   9. Rodapé
-========================== */
+.etiqueta-status {
+    margin-top: 10px;
+    font-weight: bold;
+}
 
+.status-concluido {
+    color: #6ee7a0;
+}
+
+.status-cancelado {
+    color: #ff9999;
+}
+
+.agendamento-concluidos {
+    border-left: 3px solid #dca91e;
+}
+
+.agendamento-cancelados {
+    border-left: 3px solid #a64b4b;
+}
+
+/* ==========================
+   9. Painel administrativo
+========================== */
+#listaAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+#listaAdmin .agendamento-admin {
+    background: #1f1f1f;
+    border: 1px solid #c9a227;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#listaAdmin .agendamento-admin:hover {
+    border-color: #f0cc55;
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
+}
+
+#listaAdmin .agendamento-admin p {
+    color: #f2f2f2;
+    margin: 0 0 10px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+#listaAdmin .agendamento-admin button {
+    display: inline-block;
+    margin: 8px 8px 0 0;
+    padding: 11px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#listaAdmin .agendamento-admin .btn-cancelar-admin {
+    background: #c9a227;
+    color: #111;
+    border: 1px solid #c9a227;
+}
+
+#listaAdmin .agendamento-admin .btn-cancelar-admin:hover {
+    background: #e0b735;
+    transform: translateY(-1px);
+}
+
+#listaAdmin .agendamento-admin .btn-concluir-admin {
+    background: #333;
+    color: #fff;
+    border: 1px solid #c9a227;
+}
+
+#listaAdmin .agendamento-admin .btn-concluir-admin:hover {
+    background: #454545;
+    transform: translateY(-1px);
+}
+
+#listaAdmin .agendamento-admin button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================
+   10. Área administrativa e login
+========================== */
+.acesso-admin {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.btn-admin {
+    min-height: 44px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-acesso {
+    color: var(--dourado-claro);
+    background: linear-gradient(145deg, #242424, #151515);
+    border: 1px solid var(--dourado);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 35%);
+}
+
+.btn-acesso:hover {
+    color: #111;
+    background: var(--dourado-claro);
+    border-color: var(--dourado-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(212 160 23 / 20%);
+}
+
+.painel-admin {
+    width: min(100% - 40px, 960px);
+    margin: 30px auto;
+    padding: clamp(20px, 4vw, 32px);
+    background: linear-gradient(145deg, #202020, #181818);
+    border: 1px solid var(--dourado);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.painel-admin h2, .area-login h2 {
+    margin-bottom: 12px;
+    color: var(--dourado-claro);
+    text-align: center;
+}
+
+.painel-admin > p {
+    margin-bottom: 22px;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.area-login {
+    width: min(100% - 40px, 460px);
+    margin: 30px auto;
+    padding: 28px;
+    background: linear-gradient(145deg, #202020, #181818);
+    border: 1px solid var(--dourado);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.area-login label {
+    display: block;
+    margin: 15px 0 7px;
+    color: var(--dourado-claro);
+    font-weight: 600;
+}
+
+.area-login input {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    color: var(--texto);
+    background: #121212;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+.area-login input:focus {
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 3px rgb(212 160 23 / 12%);
+}
+
+.btn-entrar {
+    margin-top: 20px;
+    color: #17120a;
+    background: linear-gradient(135deg, var(--dourado-claro), var(--dourado));
+    border: 1px solid var(--dourado);
+}
+
+.btn-entrar:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+.btn-fechar {
+    margin-top: 20px;
+    margin-left: 7px;
+    color: var(--dourado-claro);
+    background: transparent;
+    border: 1px solid var(--dourado);
+}
+
+.btn-fechar:hover {
+    color: #111;
+    background: var(--dourado-claro);
+}
+
+.btn-sair {
+    margin-top: 22px;
+    color: #ffbaba;
+    background: transparent;
+    border: 1px solid #754040;
+}
+
+.btn-sair:hover {
+    color: #fff;
+    background: #842f2f;
+    border-color: #a94444;
+}
+
+#mensagemLogin {
+    margin-top: 14px;
+    font-size: 0.9rem;
+}
+
+/* Botão de solicitação de cancelamento pelo WhatsApp */
+.btn-whatsapp {
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px;
+    color: #fff;
+    background: #167c45;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #1b9955;
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   11. Rodapé
+========================== */
 .rodape {
     padding: 24px 20px;
     color: var(--texto-suave);
@@ -430,9 +762,8 @@ select:focus-visible {
 }
 
 /* ==========================
-   10. Responsividade
+   12. Responsividade
 ========================== */
-
 @media (min-width: 760px) {
     .conteudo {
         justify-content: center;
@@ -473,8 +804,7 @@ select:focus-visible {
         gap: 18px;
     }
 
-    .agenda,
-    .lista {
+    .agenda, .lista {
         padding: 20px 16px;
     }
 
@@ -482,485 +812,8 @@ select:focus-visible {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 8px;
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
-/* Data destacada no cartão de agendamento */
-.data-agendamento {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 14px;
-    padding: 10px 12px;
-    background: rgb(212 160 23 / 12%);
-    border-left: 4px solid var(--dourado);
-    border-radius: 6px;
-    color: var(--dourado-claro);
-    font-size: 1.05rem;
-    font-weight: 700;
-}
-
-/* Etiqueta para agendamentos do dia */
-.etiqueta-hoje {
-    padding: 4px 8px;
-    border-radius: 20px;
-    background: var(--dourado);
-    color: #111;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
-
-/* Horário em evidência */
-.horario-agendamento {
-    font-weight: 700;
-    color: var(--dourado-claro);
-}
-
-/* Mensagem quando a lista estiver vazia */
-.lista-vazia {
-    padding: 18px;
-    border: 1px dashed var(--borda);
-    border-radius: var(--raio);
-    color: var(--texto-suave);
-    text-align: center;
-}
-
-/* Grupos de agendamentos */
-.grupo-agendamentos {
-    margin-top: 24px;
-}
-
-.grupo-agendamentos:first-child {
-    margin-top: 0;
-}
-
-.cabecalho-grupo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--borda);
-}
-
-.cabecalho-grupo h3 {
-    margin: 0;
-    color: var(--texto);
-    font-size: 1.05rem;
-}
-
-/* Quantidade de reservas em cada grupo */
-.contador-agendamentos {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 28px;
-    height: 28px;
-    padding: 0 8px;
-    border-radius: 20px;
-    background: var(--dourado);
-    color: #111;
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-/* Aparência discreta para o histórico */
-.grupo-agendamentos.historico .agendamento {
-    border-color: var(--borda);
-    opacity: 0.85;
-}
-
-.grupo-agendamentos.historico .cabecalho-grupo h3 {
-    color: var(--texto-suave);
-}
-
-/* Espaçamento entre os cartões */
-.grupo-agendamentos .agendamento + .agendamento {
-    margin-top: 14px;
-}
-
-
-/* Destaque para a data selecionada */
-.campo.data-selecionada {
-    padding: 12px;
-    border: 1px solid var(--dourado);
-    border-radius: var(--raio);
-    background: rgb(212 160 23 / 6%);
-}
-
-.campo.data-selecionada input[type="date"] {
-    border-color: var(--dourado);
-    box-shadow: 0 0 0 2px rgb(212 160 23 / 12%);
-}
-
-/* Transição suave dos horários */
-.horarios button {
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-/* Horário disponível */
-.horarios button.horario-disponivel:not(:disabled) {
-    color: var(--texto);
-    background: var(--superficie-elevada);
-    border: 1px solid var(--borda);
-    cursor: pointer;
-}
-
-/* Efeito ao passar o mouse */
-.horarios button.horario-disponivel:not(:disabled):hover {
-    border-color: var(--dourado);
-    color: var(--dourado-claro);
-    background: #332a15;
-}
-
-/* Horário selecionado pelo cliente */
-.horarios button.horario-selecionado {
-    color: #17120a;
-    background: var(--dourado-claro);
-    border-color: var(--dourado-claro);
-    font-weight: 800;
-}
-
-/* Horário ocupado */
-.horarios button.horario-ocupado,
-.horarios button.horario-ocupado:disabled {
-    color: #d9a5a5;
-    background: #382525;
-    border-color: #704040;
-    cursor: not-allowed;
-    opacity: 0.9;
-    text-decoration: line-through;
-}
-
-/* Horário que já passou ou está indisponível */
-.horarios button.horario-passado,
-.horarios button:disabled:not(.horario-ocupado) {
-    color: #777;
-    background: #202020;
-    border-color: #383838;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-
-/* Ações dos agendamentos */
-.acoes-agendamento {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.btn-concluir,
-.btn-cancelar {
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font: inherit;
-}
-
-.btn-concluir {
-    background: #dca91e;
-    color: #111;
-    border: 1px solid #dca91e;
-}
-
-.btn-cancelar {
-    background: transparent;
-    color: #ffb0b0;
-    border: 1px solid #754040;
-}
-
-/* Identificação do status */
-.etiqueta-status {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.status-concluido {
-    color: #6ee7a0;
-}
-
-.status-cancelado {
-    color: #ff9999;
-}
-
-/* Separação visual dos grupos */
-.grupo-agendamentos {
-    margin-bottom: 20px;
-}
-
-.agendamento-concluidos {
-    border-left: 3px solid #dca91e;
-}
-
-.agendamento-cancelados {
-    border-left: 3px solid #a64b4b;
-}
-
-/* PAINEL ADMINISTRATIVO */
-#listaAdmin {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: 100%;
-}
-
-/* CAIXA INDIVIDUAL DO AGENDAMENTO */
-#listaAdmin .agendamento-admin {
-    background: #1f1f1f;
-    border: 1px solid #c9a227;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 0;
-    box-sizing: border-box;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
-    transition: border-color 0.2s ease,
-                box-shadow 0.2s ease;
-}
-
-/* DESTAQUE AO PASSAR O MOUSE */
-#listaAdmin .agendamento-admin:hover {
-    border-color: #f0cc55;
-    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
-}
-
-/* INFORMAÇÕES DO AGENDAMENTO */
-#listaAdmin .agendamento-admin p {
-    color: #f2f2f2;
-    margin: 0 0 10px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-/* BOTÕES DOS AGENDAMENTOS ADMINISTRATIVOS */
-
-#listaAdmin .agendamento-admin button {
-    display: inline-block;
-    margin: 8px 8px 0 0;
-    padding: 11px 16px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease,
-                transform 0.2s ease;
-}
-
-/* BOTÃO CANCELAR */
-
-#listaAdmin .agendamento-admin .btn-cancelar-admin {
-    background: #c9a227;
-    color: #111111;
-    border: 1px solid #c9a227;
-}
-
-#listaAdmin .agendamento-admin .btn-cancelar-admin:hover {
-    background: #e0b735;
-    transform: translateY(-1px);
-}
-
-/* BOTÃO CONCLUIR */
-
-#listaAdmin .agendamento-admin .btn-concluir-admin {
-    background: #333333;
-    color: #ffffff;
-    border: 1px solid #c9a227;
-}
-
-#listaAdmin .agendamento-admin .btn-concluir-admin:hover {
-    background: #454545;
-    transform: translateY(-1px);
-}
-
-/* BOTÕES DESATIVADOS */
-
-#listaAdmin .agendamento-admin button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* AJUSTE PARA CELULARES */
-
-@media (max-width: 480px) {
-    #listaAdmin .agendamento-admin button {
-        display: block;
-        width: 100%;
-        margin: 8px 0 0;
-        box-sizing: border-box;
-    }
-}
-/* =====================================
-   11. ÁREA ADMINISTRATIVA
-===================================== */
-
-/* Botão de acesso do administrador */
-.acesso-admin {
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-    padding: 0 15px;
-}
-
-.btn-admin {
-    min-height: 44px;
-    padding: 11px 20px;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-/* Acesso do administrador */
-.btn-acesso {
-    color: var(--dourado-claro);
-    background: linear-gradient(145deg, #242424, #151515);
-    border: 1px solid var(--dourado);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 35%);
-}
-
-.btn-acesso:hover {
-    color: #111;
-    background: var(--dourado-claro);
-    border-color: var(--dourado-claro);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgb(212 160 23 / 20%);
-}
-
-/* Painel administrativo */
-.painel-admin {
-    width: min(100% - 40px, 960px);
-    margin: 30px auto;
-    padding: clamp(20px, 4vw, 32px);
-    background: linear-gradient(145deg, #202020, #181818);
-    border: 1px solid var(--dourado);
-    border-radius: var(--raio);
-    box-shadow: var(--sombra);
-}
-
-.painel-admin h2,
-.area-login h2 {
-    margin-bottom: 12px;
-    color: var(--dourado-claro);
-    text-align: center;
-}
-
-.painel-admin > p {
-    margin-bottom: 22px;
-    color: var(--texto-suave);
-    text-align: center;
-}
-
-/* Área de login */
-.area-login {
-    width: min(100% - 40px, 460px);
-    margin: 30px auto;
-    padding: 28px;
-    background: linear-gradient(145deg, #202020, #181818);
-    border: 1px solid var(--dourado);
-    border-radius: var(--raio);
-    box-shadow: var(--sombra);
-}
-
-.area-login label {
-    display: block;
-    margin: 15px 0 7px;
-    color: var(--dourado-claro);
-    font-weight: 600;
-}
-
-.area-login input {
-    display: block;
-    width: 100%;
-    min-height: 46px;
-    padding: 11px 13px;
-    color: var(--texto);
-    background: #121212;
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-}
-
-.area-login input:focus {
-    border-color: var(--dourado);
-    box-shadow: 0 0 0 3px rgb(212 160 23 / 12%);
-}
-
-/* Botão Entrar */
-.btn-entrar {
-    margin-top: 20px;
-    color: #17120a;
-    background: linear-gradient(
-        135deg,
-        var(--dourado-claro),
-        var(--dourado)
-    );
-    border: 1px solid var(--dourado);
-}
-
-.btn-entrar:hover {
-    filter: brightness(1.12);
-    transform: translateY(-2px);
-}
-
-/* Botão Fechar */
-.btn-fechar {
-    margin-top: 20px;
-    margin-left: 7px;
-    color: var(--dourado-claro);
-    background: transparent;
-    border: 1px solid var(--dourado);
-}
-
-.btn-fechar:hover {
-    color: #111;
-    background: var(--dourado-claro);
-}
-
-/* Botão Sair */
-.btn-sair {
-    margin-top: 22px;
-    color: #ffbaba;
-    background: transparent;
-    border: 1px solid #754040;
-}
-
-.btn-sair:hover {
-    color: #fff;
-    background: #842f2f;
-    border-color: #a94444;
-}
-
-/* Mensagem do login */
-#mensagemLogin {
-    margin-top: 14px;
-    font-size: 0.9rem;
-}
-
-/* Ajustes para celulares */
-@media (max-width: 520px) {
-    .painel-admin,
-    .area-login {
+    .painel-admin, .area-login {
         width: calc(100% - 24px);
         padding: 20px 16px;
     }
@@ -974,25 +827,23 @@ select:focus-visible {
         width: 100%;
         max-width: 320px;
     }
-}
-/* Botão de solicitação de cancelamento pelo WhatsApp */
-.btn-whatsapp {
-    width: 100%;
-    margin-top: 12px;
-    padding: 11px;
-    color: #fff;
-    background: #167c45;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s ease;
+
+    #listaAdmin .agendamento-admin button {
+        display: block;
+        width: 100%;
+        margin: 8px 0 0;
+        box-sizing: border-box;
+    }
 }
 
-.btn-whatsapp:hover {
-    background: #1b9955;
-    transform: translateY(-2px);
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
+
 /* Centralizar a caixa de agendamento */
 main.conteudo > section.agenda {
     display: block;
