@@ -1120,4 +1120,4 @@ document.getElementById("btnMostrarSenha").addEventListener("click", function ()
         : "Mostrar senha";
 });
 
-
+console.log("Botão Mostrar senha encontrado:", document.getElementById("btnMostrarSenha"));
