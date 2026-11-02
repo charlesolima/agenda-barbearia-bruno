@@ -208,6 +208,7 @@ select:focus-visible {
 }
 
 
+
 /* ==========================
    5. Horários
 ========================== */
@@ -219,39 +220,60 @@ select:focus-visible {
 }
 
 .horarios button {
-    min-height: 44px;
-    padding: 9px 5px;
+    min-height: 46px;
+    padding: 10px 5px;
     color: var(--texto);
-    background: var(--superficie-elevada);
-    border: 1px solid #414141;
-    border-radius: 8px;
+    background: #242424;
+    border: 1px solid #454545;
+    border-radius: 9px;
+    font-weight: 600;
     cursor: pointer;
-    transition:
-        background 0.2s,
-        border-color 0.2s,
-        color 0.2s,
-        transform 0.2s;
+    transition: all 0.2s ease;
 }
 
-.horarios button:hover:not(:disabled) {
-    border-color: var(--dourado);
+/* Horários disponíveis */
+.horarios button.horario-disponivel:not(:disabled) {
+    color: var(--texto);
+    background: #242424;
+    border-color: #454545;
+    cursor: pointer;
+}
+
+.horarios button.horario-disponivel:not(:disabled):hover {
+    color: var(--dourado-claro);
     background: #332a15;
+    border-color: var(--dourado);
+    transform: translateY(-2px);
 }
 
-.horarios button.selecionado {
+/* Horário selecionado */
+.horarios button.horario-selecionado {
     color: #17120a;
-    background: var(--dourado-claro);
-    border-color: var(--dourado-claro);
-    font-weight: 700;
+    background: linear-gradient(135deg, #f5d477, var(--dourado));
+    border: 1px solid var(--dourado-claro);
+    font-weight: 800;
+    box-shadow: 0 3px 10px rgb(212 160 23 / 20%);
 }
 
-.horarios button:disabled {
-    color: #777;
-    background: #181818;
-    border-color: #292929;
+/* Horários ocupados */
+.horarios button.horario-ocupado,
+.horarios button.horario-ocupado:disabled {
+    color: #d9a5a5;
+    background: #382525;
+    border-color: #704040;
     cursor: not-allowed;
-    opacity: 0.65;
+    opacity: 0.9;
     text-decoration: line-through;
+}
+
+/* Horários passados ou indisponíveis */
+.horarios button.horario-passado,
+.horarios button:disabled:not(.horario-ocupado) {
+    color: #777;
+    background: #202020;
+    border-color: #383838;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .legenda-horarios {
