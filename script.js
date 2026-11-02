@@ -21,10 +21,6 @@ const horarios = document.querySelector("#horarios");
 const btnAgendar = document.querySelector("#btnAgendar");
 const listaAgendamentos = document.querySelector("#listaAgendamentos");
 const mensagem = document.querySelector("#mensagem");
-const telefoneConsulta = document.querySelector("#telefoneConsulta");
-const btnConsultarAgendamentos = document.querySelector("#btnConsultarAgendamentos");
-const mensagemConsulta = document.querySelector("#mensagemConsulta");
-const resultadoAgendamentos = document.querySelector("#resultadoAgendamentos");
 
 const CHAVE_STORAGE = "agendamentos";
 
@@ -146,7 +142,6 @@ function aplicarMascaraTelefone(campo) {
 
 // Aplicar a mesma formatação nos dois campos
 aplicarMascaraTelefone(telefone);
-aplicarMascaraTelefone(telefoneConsulta);
 
 /* ==========================
    4. Gerar horários
@@ -1114,86 +1109,3 @@ const { data, error } = await supabaseClient
 
 } // Fecha carregarAgendamentosAdmin()
 
-async function consultarAgendamentosCliente() {
-    const telefoneDigitado = telefoneConsulta.value.replace(/\D/g, "");
-   
-    resultadoAgendamentos.innerHTML = "";
-    mensagemConsulta.hidden = false;
-
-    if (!telefoneDigitado) {
-        mensagemConsulta.textContent = "Informe seu telefone para consultar.";
-        return;
-    }
-
-    mensagemConsulta.textContent = "Consultando agendamentos...";
-
-    const { data: agendamentosCliente, error } = await supabaseClient
-        console.log("Telefone consultado:", telefoneConsulta.value.trim());
-        console.log("Resultado Supabase:", agendamentosCliente);
-        console.log("Erro Supabase:", error);
-        .from("agendamentos")
-        .select("id, cliente, telefone, servico, data, horario, status")
-        .eq("telefone", telefoneConsulta.value.trim())
-        .order("data", { ascending: true })
-            console.log("Telefone pesquisado:", telefoneConsulta.value);
-            console.log("Dados encontrados:", agendamentosCliente);
-            console.log("Erro:", error);  
-        .order("horario", { ascending: true });
-
-    if (error) {
-        console.error("Erro ao consultar agendamentos:", error);
-        mensagemConsulta.textContent = "Não foi possível consultar seus agendamentos.";
-        return;
-    }
-    
-    console.log("Telefone pesquisado:", telefoneConsulta.value.trim());
-    console.log("Agendamentos retornados:", agendamentosCliente);
-    console.log("Erro:", error);
-    
-    if (!agendamentosCliente || agendamentosCliente.length === 0) {
-        mensagemConsulta.textContent = "Nenhum agendamento encontrado para esse telefone.";
-        return;
-    }
-
-    mensagemConsulta.textContent = "";
-
-  agendamentosCliente.forEach((agendamento) => {
-    const card = document.createElement("div");
-    card.className = "agendamento";
-
-    const dataFormatada = agendamento.data.split("-").reverse().join("/");
-
-    card.innerHTML = `
-        <strong>${agendamento.servico}</strong>
-        <p>Data: ${dataFormatada}</p>
-        <p>Horário: ${agendamento.horario}</p>
-        <p>Status: ${agendamento.status}</p>
-    `;
-
-    // Exibe o botão somente para agendamentos ativos
-    if (agendamento.status === "agendado") {
-        const botaoWhatsApp = document.createElement("a");
-
-        const mensagemWhatsApp =
-            `Olá! Gostaria de solicitar o cancelamento do meu agendamento.\n\n` +
-            `Serviço: ${agendamento.servico}\n` +
-            `Data: ${dataFormatada}\n` +
-            `Horário: ${agendamento.horario}\n\n` +
-            `Aguardo a confirmação.`;
-
-        botaoWhatsApp.href =
-            `https://wa.me/${WHATSAPP_BARBEARIA}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-
-        botaoWhatsApp.target = "_blank";
-        botaoWhatsApp.rel = "noopener noreferrer";
-        botaoWhatsApp.className = "btn-whatsapp-cancelamento";
-        botaoWhatsApp.textContent = "Solicitar cancelamento pelo WhatsApp";
-
-        card.appendChild(botaoWhatsApp);
-    }
-
-    resultadoAgendamentos.appendChild(card);
-});
-
-}
-btnConsultarAgendamentos.addEventListener("click", consultarAgendamentosCliente);
