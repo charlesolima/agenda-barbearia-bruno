@@ -122,14 +122,17 @@ select:focus-visible {
 
 .agenda,
 .lista {
+    width: 100%;
+    max-width: 500px;
     min-width: 0;
+    margin: 0 auto;
+
     padding: clamp(20px, 4vw, 32px);
     background: linear-gradient(145deg, #202020, #181818);
     border: 1px solid var(--borda);
     border-radius: var(--raio);
     box-shadow: var(--sombra);
 }
-
 .titulo-secao {
     margin-bottom: 26px;
 }
