@@ -1109,15 +1109,14 @@ const { data, error } = await supabaseClient
 
 } // Fecha carregarAgendamentosAdmin()
 
-document.getElementById("btnMostrarSenha").addEventListener("click", function () {
-    const campoSenha = document.getElementById("senhaAdmin");
-    const senhaEstaOculta = campoSenha.type === "password";
+const btnMostrarSenha = document.getElementById("btnMostrarSenha");
+const campoSenha = document.getElementById("senhaAdmin");
 
-    campoSenha.type = senhaEstaOculta ? "text" : "password";
+btnMostrarSenha.addEventListener("click", function () {
+    console.log("Botão clicado!");
 
-    this.textContent = senhaEstaOculta
-        ? "Ocultar senha"
-        : "Mostrar senha";
+    campoSenha.type =
+        campoSenha.type === "password" ? "text" : "password";
+
+    console.log("Tipo atual do campo:", campoSenha.type);
 });
-
-console.log("Botão Mostrar senha encontrado:", document.getElementById("btnMostrarSenha"));
