@@ -1057,7 +1057,17 @@ main.conteudo > section.agenda {
     .gestao-mensalistas {
         padding: 18px;
     }
+/* TESTE VISUAL - GESTÃO DE MENSALISTAS */
+#gestaoMensalistas {
+    background: red !important;
+    padding: 30px !important;
+    border: 3px solid yellow !important;
+}
 
+#gestaoMensalistas .card-mensalista {
+    background: blue !important;
+    padding: 20px !important;
+}
     .card-mensalista {
         padding: 18px;
     }
