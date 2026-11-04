@@ -174,7 +174,69 @@
     </div>
 
 </section>
-         
+
+         <!-- Cadastro de Mensalistas -->
+<section id="cadastroMensalista" class="cadastro-mensalista" hidden>
+
+    <h3 id="tituloCadastroMensalista">Cadastrar Mensalista</h3>
+
+    <div class="campo">
+        <label for="nomeMensalista">Nome do cliente</label>
+        <input
+            type="text"
+            id="nomeMensalista"
+            placeholder="Digite o nome completo"
+            maxlength="120"
+        >
+    </div>
+
+    <div class="campo">
+        <label for="telefoneMensalista">Telefone celular</label>
+        <input
+            type="tel"
+            id="telefoneMensalista"
+            placeholder="(11) 99999-9999"
+            maxlength="15"
+            inputmode="numeric"
+        >
+    </div>
+
+    <div class="campo">
+        <label for="servicoMensalista">Serviço</label>
+        <select id="servicoMensalista">
+            <option value="">Selecione um serviço</option>
+            <option value="Corte">Corte - R$ 45,00</option>
+            <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
+            <option value="Barba">Barba - R$ 35,00</option>
+            <option value="Pigmentação">Pigmentação - R$ 20,00</option>
+            <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
+            <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
+            <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
+        </select>
+    </div>
+
+    <div class="campo">
+        <label for="modalidadeMensalista">Modalidade</label>
+        <select id="modalidadeMensalista">
+            <option value="">Selecione a modalidade</option>
+            <option value="fixo_recorrente">Horário fixo recorrente</option>
+            <option value="pacote_mensal">Pacote mensal</option>
+        </select>
+    </div>
+
+    <div id="configuracaoMensalista"></div>
+
+    <button type="button" id="btnSalvarMensalista" class="btn-admin">
+        Salvar mensalista
+    </button>
+
+    <button type="button" id="btnCancelarCadastroMensalista" class="btn-admin">
+        Cancelar
+    </button>
+
+    <p id="mensagemMensalista" role="status" aria-live="polite"></p>
+
+</section>
 
         <div id="listaAdmin">
             <p>Os agendamentos aparecerão aqui.</p>
