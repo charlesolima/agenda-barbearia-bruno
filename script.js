@@ -882,8 +882,10 @@ btnEntrarAdmin.addEventListener("click", async () => {
 
     areaLogin.style.display = "none";
     btnMostrarLogin.style.display = "block";
-    document.querySelector("#painelAdmin").style.display = "block";   
+   document.querySelector("#painelAdmin").style.display = "block";
+
     await carregarAgendamentosAdmin();
+    await carregarMensalistas();
 });
 
 // SAIR DO PAINEL ADMINISTRATIVO
@@ -1362,6 +1364,8 @@ btnSalvarMensalista.addEventListener("click", async () => {
         "Mensalista cadastrado com sucesso!",
         "sucesso"
     );
+    
+    await carregarMensalistas();
 
     cadastroMensalista.querySelectorAll("input").forEach(campo => {
         campo.value = "";
