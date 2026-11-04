@@ -1494,3 +1494,43 @@ async function carregarMensalistas() {
     });
 }
 
+/* ==========================
+   Botões principais do painel administrativo
+========================== */
+
+const btnAgendaAdmin = document.getElementById("btnAgendaAdmin");
+const btnGestaoMensalistas = document.getElementById("btnGestaoMensalistas");
+
+const conteudoAgendaAdmin = document.getElementById("conteudoAgendaAdmin");
+const conteudoGestaoMensalistas = document.getElementById("conteudoGestaoMensalistas");
+
+// Abre ou fecha a Agenda de Atendimentos
+btnAgendaAdmin.addEventListener("click", () => {
+
+    const abrir = conteudoAgendaAdmin.hidden;
+
+    conteudoAgendaAdmin.hidden = !abrir;
+
+    // Fecha a Gestão de Mensalistas
+    conteudoGestaoMensalistas.hidden = true;
+
+    btnAgendaAdmin.classList.toggle("ativo", abrir);
+    btnGestaoMensalistas.classList.remove("ativo");
+
+});
+
+// Abre ou fecha a Gestão de Mensalistas
+btnGestaoMensalistas.addEventListener("click", () => {
+
+    const abrir = conteudoGestaoMensalistas.hidden;
+
+    conteudoGestaoMensalistas.hidden = !abrir;
+
+    // Fecha a Agenda de Atendimentos
+    conteudoAgendaAdmin.hidden = true;
+
+    btnGestaoMensalistas.classList.toggle("ativo", abrir);
+    btnAgendaAdmin.classList.remove("ativo");
+
+});
+
