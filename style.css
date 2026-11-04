@@ -1345,3 +1345,35 @@ main.conteudo > section.agenda {
 .btn-painel.ativo {
     box-shadow: 0 0 0 3px rgb(212 160 23 / 20%);
 }
+/* Centralização e padronização dos botões principais */
+.painel-admin .botoes-painel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 25px auto;
+    flex-wrap: wrap;
+}
+
+.painel-admin .botoes-painel .btn-admin.btn-painel {
+    width: 260px;
+    min-height: 54px;
+    margin: 0;
+    padding: 12px 20px;
+
+    color: #17120a;
+    background: linear-gradient(135deg, #f5d477, #d4a017, #bd8b0c);
+    border: 1px solid #f0c75e;
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+}
+
+.painel-admin .botoes-painel .btn-admin.btn-painel:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
