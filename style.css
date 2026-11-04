@@ -1176,3 +1176,7 @@ main.conteudo > section.agenda {
 #btnCancelarCadastroMensalista:active {
     transform: scale(0.98);
 }
+#btnSalvarMensalista,
+#btnCancelarCadastroMensalista {
+    margin-bottom: 16px;
+}
