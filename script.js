@@ -1120,3 +1120,131 @@ btnMostrarSenha.addEventListener("click", function () {
 
     console.log("Tipo atual do campo:", campoSenha.type);
 });
+/* ==========================
+   14. Configuração de Mensalistas
+========================== */
+
+const cadastroMensalista = document.querySelector("#cadastroMensalista");
+const modalidadeMensalista = document.querySelector("#modalidadeMensalista");
+const configuracaoMensalista = document.querySelector("#configuracaoMensalista");
+
+const btnHorariosRecorrentes = document.querySelector("#btnHorariosRecorrentes");
+const btnPacotesMensais = document.querySelector("#btnPacotesMensais");
+const btnCancelarCadastroMensalista = document.querySelector("#btnCancelarCadastroMensalista");
+
+function atualizarConfiguracaoMensalista() {
+    configuracaoMensalista.replaceChildren();
+
+    const modalidade = modalidadeMensalista.value;
+
+    if (modalidade === "fixo_recorrente") {
+        configuracaoMensalista.innerHTML = `
+            <div class="campo">
+                <label for="diaSemanaMensalista">Dia da semana</label>
+                <select id="diaSemanaMensalista">
+                    <option value="">Selecione o dia</option>
+                    <option value="0">Domingo</option>
+                    <option value="1">Segunda-feira</option>
+                    <option value="2">Terça-feira</option>
+                    <option value="3">Quarta-feira</option>
+                    <option value="4">Quinta-feira</option>
+                    <option value="5">Sexta-feira</option>
+                    <option value="6">Sábado</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="horarioMensalista">Horário fixo</label>
+                <input type="time" id="horarioMensalista">
+            </div>
+
+            <div class="campo">
+                <label for="inicioMensalista">Data de início</label>
+                <input type="date" id="inicioMensalista">
+            </div>
+
+            <div class="campo">
+                <label for="fimMensalista">Data de término (opcional)</label>
+                <input type="date" id="fimMensalista">
+            </div>
+        `;
+    }
+
+    if (modalidade === "pacote_mensal") {
+        configuracaoMensalista.innerHTML = `
+            <div class="campo">
+                <label for="tipoAgendamentoMensalista">Tipo de agendamento</label>
+                <select id="tipoAgendamentoMensalista">
+                    <option value="">Selecione o tipo</option>
+                    <option value="livre">Agendamento livre</option>
+                    <option value="definido">Agendamento definido</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="creditosMensalista">Quantidade de atendimentos por mês</label>
+                <input
+                    type="number"
+                    id="creditosMensalista"
+                    min="1"
+                    step="1"
+                    placeholder="Ex.: 4"
+                >
+            </div>
+
+            <div class="campo">
+                <label for="regraCreditosMensalista">Créditos não utilizados</label>
+                <select id="regraCreditosMensalista">
+                    <option value="">Selecione a regra</option>
+                    <option value="acumular">Acumular para o próximo mês</option>
+                    <option value="expirar">Expirar no final do mês</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="inicioMensalista">Data de início</label>
+                <input type="date" id="inicioMensalista">
+            </div>
+
+            <div class="campo">
+                <label for="fimMensalista">Data de término (opcional)</label>
+                <input type="date" id="fimMensalista">
+            </div>
+        `;
+    }
+}
+
+modalidadeMensalista.addEventListener(
+    "change",
+    atualizarConfiguracaoMensalista
+);
+
+function abrirCadastroMensalista(modalidade) {
+    cadastroMensalista.hidden = false;
+    modalidadeMensalista.value = modalidade;
+
+    atualizarConfiguracaoMensalista();
+
+    cadastroMensalista.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+btnHorariosRecorrentes.addEventListener("click", () => {
+    abrirCadastroMensalista("fixo_recorrente");
+});
+
+btnPacotesMensais.addEventListener("click", () => {
+    abrirCadastroMensalista("pacote_mensal");
+});
+
+btnCancelarCadastroMensalista.addEventListener("click", () => {
+    cadastroMensalista.hidden = true;
+    cadastroMensalista.querySelectorAll("input").forEach(campo => {
+        campo.value = "";
+    });
+
+    modalidadeMensalista.value = "";
+    configuracaoMensalista.replaceChildren();
+});
