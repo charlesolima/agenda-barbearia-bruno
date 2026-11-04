@@ -1057,6 +1057,7 @@ main.conteudo > section.agenda {
     .gestao-mensalistas {
         padding: 18px;
     }
+}
    /* Botões de Gestão de Mensalistas */
 .card-mensalista .btn-admin {
     display: block;
