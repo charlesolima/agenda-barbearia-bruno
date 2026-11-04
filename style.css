@@ -1135,3 +1135,12 @@ main.conteudo > section.agenda {
 #btnCancelarCadastroMensalista:active {
     transform: scale(0.98);
 }
+#btnHorariosRecorrentes,
+#btnPacotesMensais,
+#btnSalvarMensalista,
+#btnCancelarCadastroMensalista {
+    background: #d4a017 !important;
+    color: #17120a !important;
+    border: 1px solid #f0c75e !important;
+    font-weight: 800 !important;
+}
