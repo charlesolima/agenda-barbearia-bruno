@@ -126,6 +126,7 @@
     </footer>
 
    
+
 <!-- Painel do Administrador -->
 <section id="painelAdmin" class="painel-admin" style="display: none;">
 
@@ -133,184 +134,148 @@
 
     <p>Bem-vindo à administração da Barbearia Bruno Almeida!</p>
 
-    <!-- Agenda de Atendimentos -->
-    <details class="painel-recolhivel">
+    <!-- Botões principais do painel -->
+    <div class="botoes-painel">
 
-        <summary>Agenda de atendimentos</summary>
+        <button type="button" id="btnAgendaAdmin" class="btn-admin btn-painel">
+            Agenda de atendimentos
+        </button>
 
-        <div class="conteudo-recolhivel">
+        <button type="button" id="btnGestaoMensalistas" class="btn-admin btn-painel">
+            Gestão de mensalistas
+        </button>
 
-            <div id="listaAdmin">
-                <p>Os agendamentos aparecerão aqui.</p>
+    </div>
+
+    <!-- Conteúdo da Agenda -->
+    <div id="conteudoAgendaAdmin" class="conteudo-painel" hidden>
+
+        <div id="listaAdmin">
+            <p>Os agendamentos aparecerão aqui.</p>
+        </div>
+
+    </div>
+
+    <!-- Conteúdo da Gestão de Mensalistas -->
+    <div id="conteudoGestaoMensalistas" class="conteudo-painel" hidden>
+
+        <section id="gestaoMensalistas" class="gestao-mensalistas">
+
+            <p>
+                Gerencie os clientes com horários recorrentes
+                e pacotes mensais.
+            </p>
+
+            <div class="opcoes-mensalistas">
+
+                <div class="card-mensalista">
+
+                    <h4>Horários Fixos Recorrentes</h4>
+
+                    <p>
+                        Cadastre clientes que possuem dia e horário
+                        fixos na barbearia.
+                    </p>
+
+                    <button type="button" id="btnHorariosRecorrentes" class="btn-admin">
+                        Gerenciar Horários Fixos
+                    </button>
+
+                </div>
+
+                <div class="card-mensalista">
+
+                    <h4>Pacotes Mensais</h4>
+
+                    <p>
+                        Cadastre clientes com quantidade definida
+                        de atendimentos por mês.
+                    </p>
+
+                    <button type="button" id="btnPacotesMensais" class="btn-admin">
+                        Gerenciar Pacotes
+                    </button>
+
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </details>
+        <!-- Cadastro de Mensalistas -->
+        <section id="cadastroMensalista" class="cadastro-mensalista" hidden>
 
-    <!-- Gestão de Mensalistas -->
-    <details class="painel-recolhivel">
+            <h3 id="tituloCadastroMensalista">Cadastrar Mensalista</h3>
 
-        <summary>Gestão de mensalistas</summary>
+            <div class="campo">
+                <label for="nomeMensalista">Nome do cliente</label>
+                <input type="text" id="nomeMensalista"
+                    placeholder="Digite o nome completo" maxlength="120">
+            </div>
 
-        <div class="conteudo-recolhivel">
+            <div class="campo">
+                <label for="telefoneMensalista">Telefone celular</label>
+                <input type="tel" id="telefoneMensalista"
+                    placeholder="(11) 99999-9999" maxlength="15"
+                    inputmode="numeric">
+            </div>
 
-            <section id="gestaoMensalistas" class="gestao-mensalistas">
+            <div class="campo">
+                <label for="servicoMensalista">Serviço</label>
+                <select id="servicoMensalista">
+                    <option value="">Selecione um serviço</option>
+                    <option value="Corte">Corte - R$ 45,00</option>
+                    <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
+                    <option value="Barba">Barba - R$ 35,00</option>
+                    <option value="Pigmentação">Pigmentação - R$ 20,00</option>
+                    <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
+                    <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
+                    <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
+                </select>
+            </div>
 
-                <p>
-                    Gerencie os clientes com horários recorrentes
-                    e pacotes mensais.
-                </p>
+            <div class="campo">
+                <label for="modalidadeMensalista">Modalidade</label>
+                <select id="modalidadeMensalista">
+                    <option value="">Selecione a modalidade</option>
+                    <option value="fixo_recorrente">Horário fixo recorrente</option>
+                    <option value="pacote_mensal">Pacote mensal</option>
+                </select>
+            </div>
 
-                <div class="opcoes-mensalistas">
+            <div id="configuracaoMensalista"></div>
 
-                    <div class="card-mensalista">
+            <button type="button" id="btnSalvarMensalista" class="btn-admin">
+                Salvar mensalista
+            </button>
 
-                        <h4>Horários Fixos Recorrentes</h4>
+            <button type="button" id="btnCancelarCadastroMensalista" class="btn-admin">
+                Cancelar
+            </button>
 
-                        <p>
-                            Cadastre clientes que possuem dia e horário
-                            fixos na barbearia.
-                        </p>
+            <p id="mensagemMensalista" role="status" aria-live="polite"></p>
 
-                        <button
-                            type="button"
-                            id="btnHorariosRecorrentes"
-                            class="btn-admin"
-                        >
-                            Gerenciar Horários Fixos
-                        </button>
+        </section>
 
-                    </div>
+        <!-- Consulta de Mensalistas -->
+        <details id="listaMensalistas" class="lista-mensalistas">
 
-                    <div class="card-mensalista">
+            <summary>Consultar mensalistas cadastrados</summary>
 
-                        <h4>Pacotes Mensais</h4>
+            <div id="conteudoMensalistas">
+                <p>Os mensalistas cadastrados aparecerão aqui.</p>
+            </div>
 
-                        <p>
-                            Cadastre clientes com quantidade definida
-                            de atendimentos por mês.
-                        </p>
+        </details>
 
-                        <button
-                            type="button"
-                            id="btnPacotesMensais"
-                            class="btn-admin"
-                        >
-                            Gerenciar Pacotes
-                        </button>
+    </div>
 
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Cadastro de Mensalistas -->
-            <section
-                id="cadastroMensalista"
-                class="cadastro-mensalista"
-                hidden
-            >
-
-                <h3 id="tituloCadastroMensalista">
-                    Cadastrar Mensalista
-                </h3>
-
-                <div class="campo">
-                    <label for="nomeMensalista">Nome do cliente</label>
-                    <input
-                        type="text"
-                        id="nomeMensalista"
-                        placeholder="Digite o nome completo"
-                        maxlength="120"
-                    >
-                </div>
-
-                <div class="campo">
-                    <label for="telefoneMensalista">Telefone celular</label>
-                    <input
-                        type="tel"
-                        id="telefoneMensalista"
-                        placeholder="(11) 99999-9999"
-                        maxlength="15"
-                        inputmode="numeric"
-                    >
-                </div>
-
-                <div class="campo">
-                    <label for="servicoMensalista">Serviço</label>
-                    <select id="servicoMensalista">
-                        <option value="">Selecione um serviço</option>
-                        <option value="Corte">Corte - R$ 45,00</option>
-                        <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
-                        <option value="Barba">Barba - R$ 35,00</option>
-                        <option value="Pigmentação">Pigmentação - R$ 20,00</option>
-                        <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
-                        <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
-                        <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="modalidadeMensalista">Modalidade</label>
-                    <select id="modalidadeMensalista">
-                        <option value="">Selecione a modalidade</option>
-                        <option value="fixo_recorrente">Horário fixo recorrente</option>
-                        <option value="pacote_mensal">Pacote mensal</option>
-                    </select>
-                </div>
-
-                <div id="configuracaoMensalista"></div>
-
-                <button
-                    type="button"
-                    id="btnSalvarMensalista"
-                    class="btn-admin"
-                >
-                    Salvar mensalista
-                </button>
-
-                <button
-                    type="button"
-                    id="btnCancelarCadastroMensalista"
-                    class="btn-admin"
-                >
-                    Cancelar
-                </button>
-
-                <p
-                    id="mensagemMensalista"
-                    role="status"
-                    aria-live="polite"
-                ></p>
-
-            </section>
-
-            <!-- Consulta de Mensalistas -->
-            <details id="listaMensalistas" class="lista-mensalistas">
-
-                <summary>Consultar mensalistas cadastrados</summary>
-
-                <div id="conteudoMensalistas">
-                    <p>Os mensalistas cadastrados aparecerão aqui.</p>
-                </div>
-
-            </details>
-
-        </div>
-
-    </details>
-
-    <button
-        type="button"
-        id="btnSairAdmin"
-        class="btn-admin btn-sair"
-    >
+    <button type="button" id="btnSairAdmin" class="btn-admin btn-sair">
         Sair do administrador
     </button>
 
 </section>
+
 
 <!-- Acesso do Administrador -->
 <div id="acessoAdmin" class="acesso-admin">
