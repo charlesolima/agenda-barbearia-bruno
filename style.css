@@ -1180,3 +1180,7 @@ main.conteudo > section.agenda {
 #btnCancelarCadastroMensalista {
     margin-bottom: 16px;
 }
+
+#cadastroMensalista {
+    margin-bottom: 25px !important;
+}
