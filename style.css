@@ -1184,3 +1184,129 @@ main.conteudo > section.agenda {
 #cadastroMensalista {
     margin-bottom: 25px !important;
 }
+
+/* ==========================
+   16. Seções recolhíveis do painel administrativo
+========================== */
+
+/* Cartões principais */
+.painel-recolhivel {
+    margin-top: 18px;
+    background: #181818;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    overflow: hidden;
+}
+
+/* Título das seções */
+.painel-recolhivel > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px;
+    color: var(--dourado-claro);
+    background: linear-gradient(135deg, #292929, #1b1b1b);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.2s ease;
+}
+
+/* Remove o marcador padrão */
+.painel-recolhivel > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Seta indicadora */
+.painel-recolhivel > summary::after {
+    content: "+";
+    color: var(--dourado-claro);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* Quando a seção estiver aberta */
+.painel-recolhivel[open] {
+    border-color: var(--dourado);
+}
+
+.painel-recolhivel[open] > summary {
+    background: #30250d;
+    border-bottom: 1px solid var(--dourado);
+}
+
+.painel-recolhivel[open] > summary::after {
+    content: "−";
+}
+
+/* Conteúdo interno */
+.conteudo-recolhivel {
+    padding: 20px;
+}
+
+/* Lista de mensalistas recolhível */
+.lista-mensalistas {
+    margin-top: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: #151515;
+    overflow: hidden;
+}
+
+.lista-mensalistas > summary {
+    padding: 15px 18px;
+    color: var(--dourado-claro);
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.lista-mensalistas > summary::-webkit-details-marker {
+    display: none;
+}
+
+.lista-mensalistas > summary::after {
+    content: "＋";
+    float: right;
+    color: var(--dourado-claro);
+}
+
+.lista-mensalistas[open] > summary::after {
+    content: "−";
+}
+
+#conteudoMensalistas {
+    padding: 18px;
+    border-top: 1px solid var(--borda);
+}
+
+/* Destaque ao passar o mouse */
+.painel-recolhivel > summary:hover,
+.lista-mensalistas > summary:hover {
+    background-color: #332a15;
+}
+
+/* Acessibilidade pelo teclado */
+.painel-recolhivel > summary:focus-visible,
+.lista-mensalistas > summary:focus-visible {
+    outline: 2px solid var(--dourado-claro);
+    outline-offset: -3px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    .painel-recolhivel > summary {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+
+    .conteudo-recolhivel {
+        padding: 14px;
+    }
+
+    #conteudoMensalistas {
+        padding: 14px;
+    }
+}
