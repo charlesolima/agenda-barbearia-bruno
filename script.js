@@ -1371,3 +1371,122 @@ btnSalvarMensalista.addEventListener("click", async () => {
     configuracaoMensalista.replaceChildren();
 });
 
+
+/* ==========================
+   16. Carregar e exibir Mensalistas
+========================== */
+
+async function carregarMensalistas() {
+    const conteudo = document.querySelector("#conteudoMensalistas");
+
+    if (!conteudo) return;
+
+    conteudo.textContent = "Carregando mensalistas...";
+
+    const { data, error } = await supabaseClient
+        .from("mensalistas")
+        .select("*")
+        .order("cliente", { ascending: true });
+
+    if (error) {
+        console.error("Erro ao carregar mensalistas:", error);
+        conteudo.textContent = "Não foi possível carregar os mensalistas.";
+        return;
+    }
+
+    conteudo.replaceChildren();
+
+    if (!data || data.length === 0) {
+        conteudo.textContent = "Nenhum mensalista cadastrado.";
+        return;
+    }
+
+    data.forEach(mensalista => {
+        const card = document.createElement("article");
+        card.className = "card-mensalista";
+
+        const nome = document.createElement("h3");
+        nome.textContent = mensalista.cliente;
+
+        const telefone = document.createElement("p");
+        telefone.textContent = `Telefone: ${mensalista.telefone}`;
+
+        const servico = document.createElement("p");
+        servico.textContent = `Serviço: ${mensalista.servico}`;
+
+        const modalidade = document.createElement("p");
+        modalidade.textContent =
+            mensalista.modalidade === "fixo_recorrente"
+                ? "Modalidade: Horário fixo recorrente"
+                : "Modalidade: Pacote mensal";
+
+        const inicio = document.createElement("p");
+        inicio.textContent =
+            `Início: ${formatarData(mensalista.data_inicio)}`;
+
+        const termino = document.createElement("p");
+        termino.textContent = mensalista.data_fim
+            ? `Término: ${formatarData(mensalista.data_fim)}`
+            : "Término: Sem data definida";
+
+        const status = document.createElement("p");
+        status.textContent = `Status: ${mensalista.status}`;
+
+        card.append(
+            nome,
+            telefone,
+            servico,
+            modalidade
+        );
+
+        if (mensalista.modalidade === "fixo_recorrente") {
+            const dias = [
+                "Domingo",
+                "Segunda-feira",
+                "Terça-feira",
+                "Quarta-feira",
+                "Quinta-feira",
+                "Sexta-feira",
+                "Sábado"
+            ];
+
+            const dia = document.createElement("p");
+            dia.textContent =
+                `Dia: ${dias[mensalista.dia_semana] ?? "Não informado"}`;
+
+            const horario = document.createElement("p");
+            horario.textContent =
+                `Horário: ${mensalista.horario || "Não informado"}`;
+
+            card.append(dia, horario);
+        }
+
+        if (mensalista.modalidade === "pacote_mensal") {
+            const tipo = document.createElement("p");
+            tipo.textContent =
+                `Agendamento: ${
+                    mensalista.tipo_agendamento === "livre"
+                        ? "Livre"
+                        : "Definido"
+                }`;
+
+            const creditos = document.createElement("p");
+            creditos.textContent =
+                `Atendimentos por mês: ${mensalista.quantidade_creditos}`;
+
+            const regra = document.createElement("p");
+            regra.textContent =
+                `Créditos: ${
+                    mensalista.regra_creditos === "acumular"
+                        ? "Acumulam para o próximo mês"
+                        : "Expiram no final do mês"
+                }`;
+
+            card.append(tipo, creditos, regra);
+        }
+
+        card.append(inicio, termino, status);
+        conteudo.appendChild(card);
+    });
+}
+
