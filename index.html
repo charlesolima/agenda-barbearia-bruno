@@ -12,296 +12,316 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js" defer></script>
 </head>
-    
+
 <body>
 
     <header class="cabecalho">
         <div class="marca">
-            
-   <img src="LOGO DA BARBEARIA.jpeg" alt="Barbearia Bruno Almeida" class="logo">
+
+            <img src="LOGO DA BARBEARIA.jpeg"
+                 alt="Barbearia Bruno Almeida"
+                 class="logo">
 
             <div class="marca-texto">
                 <p class="subtitulo">ESTILO • PRECISÃO • PERSONALIDADE</p>
                 <h1>Barbearia <span>Bruno Almeida</span></h1>
                 <p class="descricao-cabecalho">Sua imagem, nosso cuidado.</p>
             </div>
+
         </div>
     </header>
 
-<main class="conteudo">
+    <main class="conteudo">
 
-    <section class="agenda">
+        <section class="agenda">
 
-        <div class="titulo-secao">
-            <span class="etiqueta">AGENDE SEU HORÁRIO</span>
-            <h2>Novo agendamento</h2>
-            <p>Preencha os dados e escolha o melhor horário para você.</p>
-        </div>
+            <div class="titulo-secao">
+                <span class="etiqueta">AGENDE SEU HORÁRIO</span>
+                <h2>Novo agendamento</h2>
+                <p>Preencha os dados e escolha o melhor horário para você.</p>
+            </div>
 
-        <div class="campo">
-           <label for="cliente">
-    <span class="icone-campo">👤</span>
-    Nome do cliente
-</label>
-            <input
-                type="text"
-                id="cliente"
-                placeholder="Digite seu nome completo"
-                autocomplete="off"
-                required
-            >
-        </div>
+            <div class="campo">
+                <label for="cliente">
+                    <span class="icone-campo">👤</span>
+                    Nome do cliente
+                </label>
+                <input
+                    type="text"
+                    id="cliente"
+                    placeholder="Digite seu nome completo"
+                    autocomplete="off"
+                    required
+                >
+            </div>
 
-        <div class="campo">
-          <label for="telefone">
-    <span class="icone-campo">☎</span>
-    Telefone celular
-</label>
-            <input
-                type="tel"
-                id="telefone"
-                placeholder="(11) 99999-9999"
-                maxlength="15"
-                inputmode="numeric"
-                autocomplete="tel"
-                required
-            >
-        </div>
+            <div class="campo">
+                <label for="telefone">
+                    <span class="icone-campo">☎</span>
+                    Telefone celular
+                </label>
+                <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="(11) 99999-9999"
+                    maxlength="15"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
 
-        <div class="campo">
-           <label for="servico">
-    <span class="icone-campo">✂</span>
-    Serviço
-</label>
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte"> Corte - R$ 45,00</option>
-                <option value="Corte + Barba"> Corte + Barba - R$ 80,00</option>
-                <option value="Barba"> Barba - R$ 35,00</option>
-                <option value="Pigmentação"> Pigmentação - R$ 20,00</option>
-                <option value="Sobrancelha"> Sobrancelha - R$ 20,00</option>
-                <option value="Depilação Nasal"> Depilação Nasal - R$ 20,00</option>
-                <option value="Depilação Orelha"> Depilação Orelha - R$ 20,00</option>
-            </select>
-        </div>
+            <div class="campo">
+                <label for="servico">
+                    <span class="icone-campo">✂</span>
+                    Serviço
+                </label>
+                <select id="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Corte">Corte - R$ 45,00</option>
+                    <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
+                    <option value="Barba">Barba - R$ 35,00</option>
+                    <option value="Pigmentação">Pigmentação - R$ 20,00</option>
+                    <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
+                    <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
+                    <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
+                </select>
+            </div>
 
-        <div class="campo">
-            <label for="data">
-    <span class="icone-campo">▦</span>
-    Data do agendamento
-</label>
-            <input type="date" id="data" required>
-        </div>
+            <div class="campo">
+                <label for="data">
+                    <span class="icone-campo">▦</span>
+                    Data do agendamento
+                </label>
+                <input type="date" id="data" required>
+            </div>
 
-        <div class="campo">
-            <label for="horarios">Escolha o horário</label>
-            <div id="horarios" class="horarios"></div>
-            <p class="legenda-horarios">
-                Os horários indisponíveis estarão bloqueados.
-            </p>
-        </div>
+            <div class="campo">
+                <label for="horarios">Escolha o horário</label>
+                <div id="horarios" class="horarios"></div>
+                <p class="legenda-horarios">
+                    Os horários indisponíveis estarão bloqueados.
+                </p>
+            </div>
 
-        <button type="button" id="btnAgendar" class="btn-agendar">
-            Confirmar agendamento
-        </button>
+            <button type="button" id="btnAgendar" class="btn-agendar">
+                Confirmar agendamento
+            </button>
 
-        <p
-            id="mensagem"
-            class="mensagem"
-            role="status"
-            aria-live="polite"
-            hidden
-        ></p>
+            <p
+                id="mensagem"
+                class="mensagem"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></p>
 
-    </section>
+        </section>
 
-</main>
+    </main>
 
     <footer class="rodape">
         <p>Barbearia Bruno Almeida</p>
         <span>Estilo em cada detalhe.</span>
     </footer>
 
-     <section id="painelAdmin" class="painel-admin" style="display: none;">
+    <!-- Painel do Administrador -->
+    <section id="painelAdmin" class="painel-admin" style="display: none;">
+
         <h2>Painel do Administrador</h2>
 
         <p>Bem-vindo à administração da Barbearia Bruno Almeida!</p>
-      
-         <!-- Gestão de Mensalistas -->
-<section id="gestaoMensalistas" class="gestao-mensalistas">
 
-    <h3>Gestão de Mensalistas</h3>
+        <!-- Gestão de Mensalistas -->
+        <section id="gestaoMensalistas" class="gestao-mensalistas">
 
-    <p>
-        Gerencie os clientes com horários recorrentes
-        e pacotes mensais.
-    </p>
+            <h3>Gestão de Mensalistas</h3>
 
-    <div class="opcoes-mensalistas">
-
-        <div class="card-mensalista">
-            <h4>Horários Fixos Recorrentes</h4>
             <p>
-                Cadastre clientes que possuem dia e horário
-                fixos na barbearia.
+                Gerencie os clientes com horários recorrentes
+                e pacotes mensais.
             </p>
 
-            <button
-                type="button"
-                id="btnHorariosRecorrentes"
-                class="btn-admin"
-            >
-                Gerenciar Horários Fixos
+            <div class="opcoes-mensalistas">
+
+                <div class="card-mensalista">
+                    <h4>Horários Fixos Recorrentes</h4>
+                    <p>
+                        Cadastre clientes que possuem dia e horário
+                        fixos na barbearia.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnHorariosRecorrentes"
+                        class="btn-admin"
+                    >
+                        Gerenciar Horários Fixos
+                    </button>
+                </div>
+
+                <div class="card-mensalista">
+                    <h4>Pacotes Mensais</h4>
+                    <p>
+                        Cadastre clientes com quantidade definida
+                        de atendimentos por mês.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnPacotesMensais"
+                        class="btn-admin"
+                    >
+                        Gerenciar Pacotes
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Cadastro de Mensalistas -->
+        <section id="cadastroMensalista" class="cadastro-mensalista" hidden>
+
+            <h3 id="tituloCadastroMensalista">Cadastrar Mensalista</h3>
+
+            <div class="campo">
+                <label for="nomeMensalista">Nome do cliente</label>
+                <input
+                    type="text"
+                    id="nomeMensalista"
+                    placeholder="Digite o nome completo"
+                    maxlength="120"
+                >
+            </div>
+
+            <div class="campo">
+                <label for="telefoneMensalista">Telefone celular</label>
+                <input
+                    type="tel"
+                    id="telefoneMensalista"
+                    placeholder="(11) 99999-9999"
+                    maxlength="15"
+                    inputmode="numeric"
+                >
+            </div>
+
+            <div class="campo">
+                <label for="servicoMensalista">Serviço</label>
+                <select id="servicoMensalista">
+                    <option value="">Selecione um serviço</option>
+                    <option value="Corte">Corte - R$ 45,00</option>
+                    <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
+                    <option value="Barba">Barba - R$ 35,00</option>
+                    <option value="Pigmentação">Pigmentação - R$ 20,00</option>
+                    <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
+                    <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
+                    <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="modalidadeMensalista">Modalidade</label>
+                <select id="modalidadeMensalista">
+                    <option value="">Selecione a modalidade</option>
+                    <option value="fixo_recorrente">Horário fixo recorrente</option>
+                    <option value="pacote_mensal">Pacote mensal</option>
+                </select>
+            </div>
+
+            <div id="configuracaoMensalista"></div>
+
+            <button type="button" id="btnSalvarMensalista" class="btn-admin">
+                Salvar mensalista
             </button>
-        </div>
 
-        <div class="card-mensalista">
-            <h4>Pacotes Mensais</h4>
-            <p>
-                Cadastre clientes com quantidade definida
-                de atendimentos por mês.
-            </p>
-
-            <button
-                type="button"
-                id="btnPacotesMensais"
-                class="btn-admin"
-            >
-                Gerenciar Pacotes
+            <button type="button" id="btnCancelarCadastroMensalista" class="btn-admin">
+                Cancelar
             </button>
-        </div>
 
-    </div>
+            <p id="mensagemMensalista" role="status" aria-live="polite"></p>
 
-</section>
+        </section>
 
-         <!-- Cadastro de Mensalistas -->
-<section id="cadastroMensalista" class="cadastro-mensalista" hidden>
+        <!-- Lista de Mensalistas Cadastrados -->
+        <section id="listaMensalistas" class="lista-mensalistas">
 
-    <h3 id="tituloCadastroMensalista">Cadastrar Mensalista</h3>
+            <h3>Mensalistas Cadastrados</h3>
 
-    <div class="campo">
-        <label for="nomeMensalista">Nome do cliente</label>
-        <input
-            type="text"
-            id="nomeMensalista"
-            placeholder="Digite o nome completo"
-            maxlength="120"
-        >
-    </div>
+            <div id="conteudoMensalistas">
+                <p>Os mensalistas cadastrados aparecerão aqui.</p>
+            </div>
 
-    <div class="campo">
-        <label for="telefoneMensalista">Telefone celular</label>
-        <input
-            type="tel"
-            id="telefoneMensalista"
-            placeholder="(11) 99999-9999"
-            maxlength="15"
-            inputmode="numeric"
-        >
-    </div>
+        </section>
 
-    <div class="campo">
-        <label for="servicoMensalista">Serviço</label>
-        <select id="servicoMensalista">
-            <option value="">Selecione um serviço</option>
-            <option value="Corte">Corte - R$ 45,00</option>
-            <option value="Corte + Barba">Corte + Barba - R$ 80,00</option>
-            <option value="Barba">Barba - R$ 35,00</option>
-            <option value="Pigmentação">Pigmentação - R$ 20,00</option>
-            <option value="Sobrancelha">Sobrancelha - R$ 20,00</option>
-            <option value="Depilação Nasal">Depilação Nasal - R$ 20,00</option>
-            <option value="Depilação Orelha">Depilação Orelha - R$ 20,00</option>
-        </select>
-    </div>
-
-    <div class="campo">
-        <label for="modalidadeMensalista">Modalidade</label>
-        <select id="modalidadeMensalista">
-            <option value="">Selecione a modalidade</option>
-            <option value="fixo_recorrente">Horário fixo recorrente</option>
-            <option value="pacote_mensal">Pacote mensal</option>
-        </select>
-    </div>
-
-    <div id="configuracaoMensalista"></div>
-
-    <button type="button" id="btnSalvarMensalista" class="btn-admin">
-        Salvar mensalista
-    </button>
-
-    <button type="button" id="btnCancelarCadastroMensalista" class="btn-admin">
-        Cancelar
-    </button>
-
-    <p id="mensagemMensalista" role="status" aria-live="polite"></p>
-
-</section>
-
+        <!-- Lista de Agendamentos Normais -->
         <div id="listaAdmin">
             <p>Os agendamentos aparecerão aqui.</p>
         </div>
 
-       <button type="button" id="btnSairAdmin" class="btn-admin btn-sair">
+        <button type="button" id="btnSairAdmin" class="btn-admin btn-sair">
             Sair do administrador
         </button>
+
     </section>
 
-  <div id="acessoAdmin" class="acesso-admin">
-    <button
-        type="button"
-        id="btnMostrarLogin"
-        class="btn-admin btn-acesso"
-    >
-        ♙ Acesso do administrador
-    </button>
-</div>
+    <!-- Acesso do Administrador -->
+    <div id="acessoAdmin" class="acesso-admin">
+        <button
+            type="button"
+            id="btnMostrarLogin"
+            class="btn-admin btn-acesso"
+        >
+            ♙ Acesso do administrador
+        </button>
+    </div>
 
-   
-<section id="areaLogin" class="area-login" style="display: none;">
-    <h2>Login do Administrador</h2>
+    <!-- Login do Administrador -->
+    <section id="areaLogin" class="area-login" style="display: none;">
 
-    <label for="emailAdmin">E-mail:</label>
-    <input
-        type="email"
-        id="emailAdmin"
-        placeholder="Digite seu e-mail"
-        autocomplete="username"
-    >
+        <h2>Login do Administrador</h2>
 
-<label for="senhaAdmin">Senha:</label>
+        <label for="emailAdmin">E-mail:</label>
+        <input
+            type="email"
+            id="emailAdmin"
+            placeholder="Digite seu e-mail"
+            autocomplete="username"
+        >
 
-<div class="campo-senha">
-    <input
-        type="password"
-        id="senhaAdmin"
-        placeholder="Digite sua senha"
-    >
+        <label for="senhaAdmin">Senha:</label>
 
-    <button type="button" id="btnMostrarSenha">
-        Mostrar senha
-    </button>
-</div>
-    
-   <button
-    type="button"
-    id="btnEntrarAdmin"
-    class="btn-admin btn-entrar"
->
-    Entrar
-</button>
+        <div class="campo-senha">
+            <input
+                type="password"
+                id="senhaAdmin"
+                placeholder="Digite sua senha"
+            >
 
-<button
-    type="button"
-    id="btnFecharLogin"
-    class="btn-admin btn-fechar"
->
-    Fechar
-</button>
+            <button type="button" id="btnMostrarSenha">
+                Mostrar senha
+            </button>
+        </div>
 
-    <p id="mensagemLogin"></p>
-</section>
+        <button
+            type="button"
+            id="btnEntrarAdmin"
+            class="btn-admin btn-entrar"
+        >
+            Entrar
+        </button>
 
+        <button
+            type="button"
+            id="btnFecharLogin"
+            class="btn-admin btn-fechar"
+        >
+            Fechar
+        </button>
+
+        <p id="mensagemLogin"></p>
+
+    </section>
 
 </body>
 </html>
