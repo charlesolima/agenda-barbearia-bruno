@@ -1313,11 +1313,12 @@ main.conteudo > section.agenda {
 
 
 /* Botões principais do painel administrativo */
-.botoes-painel {
-    display: flex;
-    justify-content: center;
+.painel-admin .botoes-painel {
+    display: flex !important;
+    justify-content: center !important;
     align-items: center;
     gap: 20px;
+    width: 100%;
     margin: 25px auto;
     flex-wrap: wrap;
 }
