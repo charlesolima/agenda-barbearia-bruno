@@ -1399,3 +1399,12 @@ main.conteudo > section.agenda {
     text-align: center !important;
     cursor: pointer !important;
 }
+#painelAdmin .botoes-painel {
+    outline: 3px solid red !important;
+    background: blue !important;
+}
+
+#painelAdmin .botoes-painel button {
+    background: yellow !important;
+    color: black !important;
+}
