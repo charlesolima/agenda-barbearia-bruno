@@ -1310,43 +1310,10 @@ main.conteudo > section.agenda {
         padding: 14px;
     }
 }
+/* ==========================
+   Botões principais do painel administrativo
+========================== */
 
-
-/* Botões principais do painel administrativo */
-.painel-admin .botoes-painel {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    margin: 25px auto;
-    flex-wrap: wrap;
-}
-
-.btn-painel {
-    width: 260px;
-    min-height: 54px;
-    padding: 12px 20px;
-    color: #17120a;
-    background: linear-gradient(135deg, #f5d477, var(--dourado), #bd8b0c);
-    border: 1px solid var(--dourado-claro);
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 800;
-    text-align: center;
-    cursor: pointer;
-    transition: filter 0.25s ease, transform 0.25s ease;
-}
-
-.btn-painel:hover {
-    filter: brightness(1.12);
-    transform: translateY(-2px);
-}
-
-.btn-painel.ativo {
-    box-shadow: 0 0 0 3px rgb(212 160 23 / 20%);
-}
-/* Centralização e padronização dos botões principais */
 .painel-admin .botoes-painel {
     display: flex;
     justify-content: center;
@@ -1357,7 +1324,11 @@ main.conteudo > section.agenda {
     flex-wrap: wrap;
 }
 
-.painel-admin .botoes-painel .btn-admin.btn-painel {
+.painel-admin .botoes-painel button.btn-painel {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
     width: 260px;
     min-height: 54px;
     margin: 0;
@@ -1368,13 +1339,21 @@ main.conteudo > section.agenda {
     border: 1px solid #f0c75e;
     border-radius: 10px;
 
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 800;
     text-align: center;
+
     cursor: pointer;
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-.painel-admin .botoes-painel .btn-admin.btn-painel:hover {
+.painel-admin .botoes-painel button.btn-painel:hover {
     filter: brightness(1.12);
     transform: translateY(-2px);
 }
+
+.painel-admin .botoes-painel button.btn-painel.ativo {
+    box-shadow: 0 0 0 3px rgb(212 160 23 / 20%);
+}
+
