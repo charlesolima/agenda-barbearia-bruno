@@ -1248,3 +1248,126 @@ btnCancelarCadastroMensalista.addEventListener("click", () => {
     modalidadeMensalista.value = "";
     configuracaoMensalista.replaceChildren();
 });
+
+/* ==========================
+   15. Salvar Mensalista
+========================== */
+
+const btnSalvarMensalista = document.querySelector("#btnSalvarMensalista");
+
+btnSalvarMensalista.addEventListener("click", async () => {
+
+    const nome = document.querySelector("#nomeMensalista").value.trim();
+    const telefone = document.querySelector("#telefoneMensalista").value.trim();
+    const servico = document.querySelector("#servicoMensalista").value;
+    const modalidade = modalidadeMensalista.value;
+
+    const inicio = document.querySelector("#inicioMensalista")?.value;
+    const fim = document.querySelector("#fimMensalista")?.value || null;
+
+    const mensagemMensalista = document.querySelector("#mensagemMensalista");
+
+    function exibirMensagemMensalista(texto, tipo) {
+        mensagemMensalista.textContent = texto;
+        mensagemMensalista.className = `mensagem ${tipo}`;
+        mensagemMensalista.hidden = false;
+    }
+
+    // Validações gerais
+    if (!nome || !telefone || !servico || !modalidade || !inicio) {
+        exibirMensagemMensalista(
+            "Preencha todos os campos obrigatórios.",
+            "erro"
+        );
+        return;
+    }
+
+    if (fim && fim < inicio) {
+        exibirMensagemMensalista(
+            "A data de término não pode ser anterior à data de início.",
+            "erro"
+        );
+        return;
+    }
+
+    // Dados que serão enviados ao Supabase
+    const mensalista = {
+        cliente: nome,
+        telefone: telefone,
+        servico: servico,
+        modalidade: modalidade,
+        data_inicio: inicio,
+        data_fim: fim,
+        status: "ativo"
+    };
+
+    // Configurações específicas de cada modalidade
+    if (modalidade === "fixo_recorrente") {
+
+        const diaSemana = document.querySelector("#diaSemanaMensalista").value;
+        const horario = document.querySelector("#horarioMensalista").value;
+
+        if (diaSemana === "" || !horario) {
+            exibirMensagemMensalista(
+                "Informe o dia da semana e o horário fixo.",
+                "erro"
+            );
+            return;
+        }
+
+        mensalista.dia_semana = Number(diaSemana);
+        mensalista.horario = horario;
+    }
+
+    if (modalidade === "pacote_mensal") {
+
+        const tipo = document.querySelector("#tipoAgendamentoMensalista").value;
+        const creditos = document.querySelector("#creditosMensalista").value;
+        const regra = document.querySelector("#regraCreditosMensalista").value;
+
+        if (!tipo || !creditos || Number(creditos) <= 0 || !regra) {
+            exibirMensagemMensalista(
+                "Informe o tipo de agendamento, os créditos e a regra.",
+                "erro"
+            );
+            return;
+        }
+
+        mensalista.tipo_agendamento = tipo;
+        mensalista.quantidade_creditos = Number(creditos);
+        mensalista.regra_creditos = regra;
+    }
+
+    btnSalvarMensalista.disabled = true;
+    btnSalvarMensalista.textContent = "Salvando...";
+
+    const { error } = await supabaseClient
+        .from("mensalistas")
+        .insert([mensalista]);
+
+    btnSalvarMensalista.disabled = false;
+    btnSalvarMensalista.textContent = "Salvar mensalista";
+
+    if (error) {
+        console.error("Erro ao salvar mensalista:", error);
+
+        exibirMensagemMensalista(
+            "Não foi possível salvar. Verifique o cadastro e tente novamente.",
+            "erro"
+        );
+        return;
+    }
+
+    exibirMensagemMensalista(
+        "Mensalista cadastrado com sucesso!",
+        "sucesso"
+    );
+
+    cadastroMensalista.querySelectorAll("input").forEach(campo => {
+        campo.value = "";
+    });
+
+    modalidadeMensalista.value = "";
+    configuracaoMensalista.replaceChildren();
+});
+
