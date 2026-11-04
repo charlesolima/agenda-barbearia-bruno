@@ -1135,12 +1135,44 @@ main.conteudo > section.agenda {
 #btnCancelarCadastroMensalista:active {
     transform: scale(0.98);
 }
+/* Botões da Gestão de Mensalistas no padrão do Agendar */
 #btnHorariosRecorrentes,
 #btnPacotesMensais,
 #btnSalvarMensalista,
 #btnCancelarCadastroMensalista {
-    background: #d4a017 !important;
-    color: #17120a !important;
-    border: 1px solid #f0c75e !important;
-    font-weight: 800 !important;
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 12px;
+    padding: 14px 18px;
+
+    color: #17120a;
+    background: linear-gradient(135deg, #f5d477, var(--dourado), #bd8b0c);
+    border: 1px solid var(--dourado-claro);
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(212 160 23 / 15%);
+    transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#btnHorariosRecorrentes:hover,
+#btnPacotesMensais:hover,
+#btnSalvarMensalista:hover,
+#btnCancelarCadastroMensalista:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(212 160 23 / 25%);
+}
+
+#btnHorariosRecorrentes:active,
+#btnPacotesMensais:active,
+#btnSalvarMensalista:active,
+#btnCancelarCadastroMensalista:active {
+    transform: scale(0.98);
 }
