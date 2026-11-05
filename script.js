@@ -1285,6 +1285,16 @@ btnSalvarMensalista.addEventListener("click", async () => {
         return;
     }
 
+    const telefoneNumeros = telefone.replace(/\D/g, "");
+
+if (telefoneNumeros.length !== 11) {
+    exibirMensagemMensalista(
+        "Informe um telefone válido com DDD.",
+        "erro"
+    );
+    return;
+}
+
     if (fim && fim < inicio) {
         exibirMensagemMensalista(
             "A data de término não pode ser anterior à data de início.",
