@@ -1338,7 +1338,13 @@ if (telefoneNumeros.length !== 11) {
         const creditos = document.querySelector("#creditosMensalista").value;
         const regra = document.querySelector("#regraCreditosMensalista").value;
 
-        if (!tipo || !creditos || Number(creditos) <= 0 || !regra) {
+       if (
+    !tipo ||
+    !creditos ||
+    !Number.isInteger(Number(creditos)) ||
+    Number(creditos) <= 0 ||
+    !regra
+) {
             exibirMensagemMensalista(
                 "Informe o tipo de agendamento, os créditos e a regra.",
                 "erro"
