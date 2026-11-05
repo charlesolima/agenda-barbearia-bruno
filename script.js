@@ -15,6 +15,7 @@ const WHATSAPP_BARBEARIA = "5511985105189";
 
 const cliente = document.querySelector("#cliente");
 const telefone = document.querySelector("#telefone");
+const telefoneMensalista = document.querySelector("#telefoneMensalista");
 const servico = document.querySelector("#servico");
 const data = document.querySelector("#data");
 const horarios = document.querySelector("#horarios");
@@ -142,7 +143,7 @@ function aplicarMascaraTelefone(campo) {
 
 // Aplicar a mesma formatação nos dois campos
 aplicarMascaraTelefone(telefone);
-
+aplicarMascaraTelefone(telefoneMensalista);
 /* ==========================
    4. Gerar horários
 ========================== */
