@@ -1385,9 +1385,13 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+/* Logo como marca-d'água em toda a página */
 body {
-    background-image: url("LOGO DA BARBEARIA.jpeg") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 300px !important;
+    background-image:
+        linear-gradient(rgb(16 16 16 / 88%), rgb(16 16 16 / 88%)),
+        url("LOGO DA BARBEARIA.jpeg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, min(75vw, 650px);
+    background-attachment: fixed, fixed;
 }
