@@ -1385,3 +1385,9 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+body {
+    background-image: url("LOGO DA BARBEARIA.jpeg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 300px !important;
+}
