@@ -1395,3 +1395,18 @@ body {
     background-size: cover, min(75vw, 650px);
     background-attachment: fixed, fixed;
 }
+@media (max-width: 520px) {
+    body {
+        background-image:
+            linear-gradient(
+                rgb(16 16 16 / 82%),
+                rgb(16 16 16 / 82%)
+            ),
+            url("LOGO DA BARBEARIA.jpeg");
+
+        background-repeat: no-repeat, no-repeat;
+        background-position: center center, center center;
+        background-size: cover, 90vw auto;
+        background-attachment: scroll, scroll;
+    }
+}
