@@ -1367,21 +1367,20 @@ main.conteudo > section.agenda {
     filter: brightness(1.12);
     box-shadow: 0 0 12px rgb(212 160 23 / 30%);
 }
-/* LOGO COMO MARCA-D'ÁGUA NO FUNDO */
+/* Logo da barbearia como marca-d'água */
 body {
     position: relative;
     isolation: isolate;
-    background-color: #111111;
 }
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: url("LOGO/LOGO DA BARBEARIA.jpeg");
+    background-image: url("LOGO DA BARBEARIA.jpeg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: min(65vw, 650px);
+    background-size: min(75vw, 650px);
     opacity: 0.10;
     pointer-events: none;
     z-index: -1;
